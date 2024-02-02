@@ -603,12 +603,12 @@ function rollPowers(rerollChar) {
 		var k = 1;
 		for (var j = 1; j < 7; j++) {
 			if (j<=3) {
-				elem[j].children[0].children[0].src = 'resources/powers/' + powers[i][0] + '.png';
+				elem[j].children[0].children[0].src = 'resources/Powers/' + powers[i][0] + '.png';
 				elem[j].children[0].children[1].innerHTML = powers[i][k++];
 			} else {
-				elem[j].children[0].children[0].children[0].src = 'resources/powers/' + powers[i][0] + '.png';
+				elem[j].children[0].children[0].children[0].src = 'resources/Powers/' + powers[i][0] + '.png';
 				elem[j].children[0].children[0].children[1].innerHTML = powers[i][k++];
-				elem[j].children[1].children[0].children[0].src = 'resources/powers/' + powers[i][0] + '.png';
+				elem[j].children[1].children[0].children[0].src = 'resources/Powers/' + powers[i][0] + '.png';
 				elem[j].children[1].children[0].children[1].innerHTML = powers[i][k++];
 			}
 		}
