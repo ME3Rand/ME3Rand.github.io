@@ -1,65 +1,65 @@
 function getRandomCharacter() {
 	// [characterName, characterPng, weightLimit, hasBiotics, hasTech, hasGrenades]
 	var charList = new Array();
-	charList.push(['Human Adept', 'HumanAdeptSentinel', 200, true, false, false]);
-	charList.push(['Asari Adept', 'Asari', 200, true, false, false]);
-	charList.push(['Drell Adept', 'Drell', 250, true, false, true]);
-	charList.push(['Asari Justicar Adept', 'AsariJusticar', 200, true, false, false]);
-	charList.push(['Phoenix Project Adept', 'Phoenix', 200, true, false, false]);
-	charList.push(['N7 Fury Adept', 'N7Fury', 200, true, false, false]);
-	charList.push(['Volus Adept', 'VolusAdept', 200, true, false, false]);
-	charList.push(['Krogan Shaman Adept', 'KroganShaman', 300, true, false, false]);
-	charList.push(['Batarian Slasher Adept', 'BatarianSlasher', 250, true, false, true]);
-	charList.push(['Awakened Collector Adept', 'Collector', 200, true, false, false]);
-	charList.push(['Human Soldier', 'HumanSoldierVanguard', 250, false, false, true]);
-	charList.push(['Krogan Soldier', 'Krogan', 300, false, false, true]);
-	charList.push(['Turian Soldier', 'Turian', 250, false, false, false]);
-	charList.push(['Battlefield 3 Soldier', 'BF3', 250, false, false, true]);
-	charList.push(['Batarian Soldier', 'Batarian', 250, false, false, true]);
-	charList.push(['Vorcha Soldier', 'Vorcha', 200, false, true, false]);
+	charList.push(['Human Adept', 'HumanAdeptSentinel', 250, true, false, false]);
+	charList.push(['Asari Adept', 'Asari', 250, true, false, false]);
+	charList.push(['Drell Adept', 'Drell', 300, true, false, true]);
+	charList.push(['Asari Justicar Adept', 'AsariJusticar', 250, true, false, false]);
+	charList.push(['Phoenix Project Adept', 'Phoenix', 250, true, false, false]);
+	charList.push(['N7 Fury Adept', 'N7Fury', 250, true, false, false]);
+	charList.push(['Volus Adept', 'VolusAdept', 250, true, false, false]);
+	charList.push(['Krogan Shaman Adept', 'KroganShaman', 350, true, false, false]);
+	charList.push(['Batarian Slasher Adept', 'BatarianSlasher', 300, true, false, true]);
+	charList.push(['Awakened Collector Adept', 'Collector', 250, true, false, false]);
+	charList.push(['Human Soldier', 'HumanSoldierVanguard', 300, false, false, true]);
+	charList.push(['Krogan Soldier', 'Krogan', 350, false, false, true]);
+	charList.push(['Turian Soldier', 'Turian', 300, false, false, false]);
+	charList.push(['Battlefield 3 Soldier', 'BF3', 300, false, false, true]);
+	charList.push(['Batarian Soldier', 'Batarian', 300, false, false, true]);
+	charList.push(['Vorcha Soldier', 'Vorcha', 300, false, true, false]);
 	charList.push(['N7 Destroyer Soldier', 'N7Destroyer', 500, false, false, true]);
-	charList.push(['Turian Havoc Soldier', 'TurianHavoc', 250, false, true, true]);
-	charList.push(['Geth Trooper Soldier', 'GethTrooper', 250, false, true, false]);
-	charList.push(['Quarian Marksman Soldier', 'QuarianMarksman', 250, false, true, false]);
-	charList.push(['Geth Juggernaut Soldier', 'GethJuggernaut', 250, false, true, false]);
-	charList.push(['Human Engineer', 'HumanEngineerInfiltrator', 200, false, true, false]);
-	charList.push(['Quarian Female Engineer', 'Quarian', 200, false, true, false]);
-	charList.push(['Salarian Engineer', 'Salarian', 250, false, true, false]);
-	charList.push(['Geth Engineer', 'GethEngineer', 250, false, true, false]);
-	charList.push(['Quarian Male Engineer', 'QuarianMale', 250, false, true, true]);
-	charList.push(['N7 Demolisher Engineer', 'N7Demolisher', 300, false, true, true]);
-	charList.push(['Volus Engineer', 'VolusEngineer', 200, false, false, false]);
-	charList.push(['Turian Saboteur Engineer', 'TurianSaboteur', 250, false, true, true]);
-	charList.push(['Vorcha Hunter Engineer', 'VorchaHunter', 200, false, true, false]);
-	if (!document.getElementById('chkTalonEngineer').checked) charList.push(['Talon Mercenary Engineer', 'TalonMercenary', 300, false, false, true]);
-	charList.push(['Human Sentinel', 'HumanAdeptSentinel', 200, true, true, false]);
-	charList.push(['Turian Sentinel', 'Turian', 250, true, true, false]);
-	charList.push(['Krogan Sentinel', 'Krogan', 300, true, true, true]);
-	charList.push(['Batarian Sentinel', 'Batarian', 250, true, true, false]);
-	charList.push(['Vorcha Sentinel', 'Vorcha', 200, true, true, true]);
-	charList.push(['N7 Paladin Sentinel', 'N7Paladin', 250, false, true, false]);
-	charList.push(['Volus Mercenary Sentinel', 'VolusMercenary', 200, false, true, false]);
-	charList.push(['Asari Valkyrie Sentinel', 'AsariValkyrie', 250, true, true, false]);
-	charList.push(['Krogan Warlord Sentinel', 'KroganWarlord', 250, true, true, false]);
-	charList.push(['Human Infiltrator', 'HumanEngineerInfiltrator', 250, false, false, true]);
-	charList.push(['Salarian Infiltrator', 'Salarian', 250, false, true, false]);
-	charList.push(['Quarian Female Infiltrator', 'Quarian', 250, false, true, true]);
-	charList.push(['Geth Infiltrator', 'GethInfiltrator', 250, false, false, false]);
-	charList.push(['Quarian Male Infiltrator', 'QuarianMale', 250, false, true, true]);
-	charList.push(['N7 Shadow Infiltrator', 'N7Shadow', 200, false, true, false]);
-	charList.push(['Turian Ghost Infiltrator', 'TurianGhost', 250, false, true, true]);
-	charList.push(['Drell Assassin Infiltrator', 'DrellAssassin', 250, false, true, true]);
-	charList.push(['Asari Huntress Infiltrator', 'AsariHuntress', 200, true, false, false]);
-	charList.push(['Alliance Infiltration Unit Infiltrator', 'AIU', 250, false, true, true]);
-	charList.push(['Human Vanguard', 'HumanSoldierVanguard', 200, true, false, false]);
-	charList.push(['Drell Vanguard', 'Drell', 250, true, false, true]);
-	charList.push(['Asari Vanguard', 'Asari', 250, true, false, true]);
-	charList.push(['Krogan Vanguard', 'KroganBattlemaster', 250, true, false, false]);
-	charList.push(['Phoenix Project Vanguard', 'Phoenix', 200, true, false, false]);
-	charList.push(['N7 Slayer Vanguard', 'N7Slayer', 200, true, false, false]);
-	charList.push(['Volus Protector Vanguard', 'VolusProtector', 200, true, false, false]);
-	charList.push(['Batarian Brawler Vanguard', 'BatarianBrawler', 250, true, false, false]);
-	charList.push(['Cabal Vanguard', 'Cabal', 250, true, false, true]);
+	charList.push(['Turian Havoc Soldier', 'TurianHavoc', 300, false, true, true]);
+	charList.push(['Geth Trooper Soldier', 'GethTrooper', 300, false, true, false]);
+	charList.push(['Quarian Marksman Soldier', 'QuarianMarksman', 300, false, true, false]);
+	charList.push(['Geth Juggernaut Soldier', 'GethJuggernaut', 350, false, true, false]);
+	charList.push(['Human Engineer', 'HumanEngineerInfiltrator', 250, false, true, false]);
+	charList.push(['Quarian Female Engineer', 'Quarian', 250, false, true, false]);
+	charList.push(['Salarian Engineer', 'Salarian', 300, false, true, false]);
+	charList.push(['Geth Engineer', 'GethEngineer', 300, false, true, false]);
+	charList.push(['Quarian Male Engineer', 'QuarianMale', 300, false, true, true]);
+	charList.push(['N7 Demolisher Engineer', 'N7Demolisher', 500, false, true, true]);
+	charList.push(['Volus Engineer', 'VolusEngineer', 250, false, false, false]);
+	charList.push(['Turian Saboteur Engineer', 'TurianSaboteur', 300, false, true, true]);
+	charList.push(['Vorcha Hunter Engineer', 'VorchaHunter', 250, false, true, false]);
+	if (!document.getElementById('chkTalonEngineer').checked) charList.push(['Talon Mercenary Engineer', 'TalonMercenary', 500, false, false, true]);
+	charList.push(['Human Sentinel', 'HumanAdeptSentinel', 300, true, true, false]);
+	charList.push(['Turian Sentinel', 'Turian', 300, true, true, false]);
+	charList.push(['Krogan Sentinel', 'Krogan', 350, true, true, true]);
+	charList.push(['Batarian Sentinel', 'Batarian', 300, true, true, false]);
+	charList.push(['Vorcha Sentinel', 'Vorcha', 300, true, true, true]);
+	charList.push(['N7 Paladin Sentinel', 'N7Paladin', 300, false, true, false]);
+	charList.push(['Volus Mercenary Sentinel', 'VolusMercenary', 250, false, true, false]);
+	charList.push(['Asari Valkyrie Sentinel', 'AsariValkyrie', 300, true, true, false]);
+	charList.push(['Krogan Warlord Sentinel', 'KroganWarlord', 350, true, true, false]);
+	charList.push(['Human Infiltrator', 'HumanEngineerInfiltrator', 350, false, false, true]);
+	charList.push(['Salarian Infiltrator', 'Salarian', 350, false, true, false]);
+	charList.push(['Quarian Female Infiltrator', 'Quarian', 350, false, true, true]);
+	charList.push(['Geth Infiltrator', 'GethInfiltrator', 350, false, false, false]);
+	charList.push(['Quarian Male Infiltrator', 'QuarianMale', 350, false, true, true]);
+	charList.push(['N7 Shadow Infiltrator', 'N7Shadow', 250, false, true, false]);
+	charList.push(['Turian Ghost Infiltrator', 'TurianGhost', 350, false, true, true]);
+	charList.push(['Drell Assassin Infiltrator', 'DrellAssassin', 300, false, true, true]);
+	charList.push(['Asari Huntress Infiltrator', 'AsariHuntress', 300, true, false, false]);
+	charList.push(['Alliance Infiltration Unit Infiltrator', 'AIU', 350, false, true, true]);
+	charList.push(['Human Vanguard', 'HumanSoldierVanguard', 250, true, false, false]);
+	charList.push(['Drell Vanguard', 'Drell', 300, true, false, true]);
+	charList.push(['Asari Vanguard', 'Asari', 300, true, false, true]);
+	charList.push(['Krogan Vanguard', 'KroganBattlemaster', 350, true, false, false]);
+	charList.push(['Phoenix Project Vanguard', 'Phoenix', 250, true, false, false]);
+	charList.push(['N7 Slayer Vanguard', 'N7Slayer', 250, true, false, false]);
+	charList.push(['Volus Protector Vanguard', 'VolusProtector', 250, true, false, false]);
+	charList.push(['Batarian Brawler Vanguard', 'BatarianBrawler', 300, true, false, false]);
+	charList.push(['Cabal Vanguard', 'Cabal', 300, true, false, true]);
 	do {
 		// roll character
 			var randomIndex = Math.floor(Math.random() * charList.length);
@@ -171,239 +171,426 @@ function getPowerRanks() {
 
 function rollPowers(rerollChar) {
 	var character = sessionStorage.getItem('characterName');
-	var rerolls = []; //[power, powerrank, rerolls]
 	switch (character) {
 		case 'Human Adept':
-			var powers = [['Singularity', 40, 40, 50],			['Warp', 20, 30, 70],					['Shockwave', 100, 80, 50],				['Alliance Training', 50, 60, 20],		['Fitness', 40, 40, 40]];
-			rerolls = [0, 4, 1];
+			var powers = [['Singularity', 'Singularity', 'Recharge Speed', 'Damage', 'Duration', 'Radius', 'Lift Damage', 'Recharge Speed', 'Damage', 'Detonate', 40, 50, 50],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 60],
+						  ['Shockwave', 'Shockwave', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Detonate', 'Reach', 'Recharge Speed', 'Lifting Shockwave', 100, 70, 50],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 30, 30]];
 			break;
 		case 'Asari Adept':
-			var powers = [['Stasis', 50, 40, 70],				['Warp', 20, 30, 70],					['Throw', 40, 80, 50],					['Asari Justicar', 50, 60, 20],			['Fitness', 20, 20, 20]];
-			rerolls = [1, 4, 1];
+			var powers = [['Stasis', 'Stasis', 'Recharge Speed', 'Duration', 'Duration', 'Stasis Strength', 'Bonus Power', 'Recharge Speed', 'Bubble', 'Vulnerability', 50, 40, 70],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 60],
+						  ['Throw', 'Throw', 'Recharge Speed', 'Force', 'Force', 'Radius', 'Detonate', 'Recharge Combo', 'Force & Damage', 'Recharge Speed', 40, 70, 50],
+						  ['MPPassive', 'Asari Justicar', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Drell Adept':
-			var powers = [['Reave', 20, 70, 30],				['Pull', 40, 50, 60],					['Cluster Grenade', 60, 30, 70],		['Drell Assassin', 40, 70, 20],			['Fitness', 20, 20, 20]];
-			rerolls = [0, 5, 1];
+			var powers = [['Reave', 'Reave', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Damage Reduction', 'Recharge Speed', 'Barriers & Armor', 'Damage & Duration', 30, 60, 30],
+						  ['Pull', 'Pull', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Lift Damage', 'Expose', 'Duration & Combo', 'Recharge Speed', 40, 50, 60],
+						  ['ClusterGrenade', 'Cluster Grenade', 'Max Grenades', 'Force & Damage', 'Force & Damage', 'Radius', 'Max Grenades', 'Damage Combo', 'Shrapnel', 'Force & Damage', 50, 30, 60],
+						  ['MPPassive', 'Drell Assassin', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Asari Justicar Adept':
-			var powers = [['Biotic Sphere', 40, 30, 20],		['Reave', 20, 70, 30],					['Pull', 40, 50, 60],					['Asari Justicar', 50, 60, 20],			['Fitness', 20, 20, 20]];
+			var powers = [['BioticSphere', 'Biotic Sphere', 'Recharge Speed', 'Duration', 'Shield Regeneration', 'Radius', 'Damage Reduction', 'Enemy Weakness', 'Allied Protection', 'Warp Effect', 40, 40, 30],
+						  ['Reave', 'Reave', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Damage Reduction', 'Recharge Speed', 'Barriers & Armor', 'Damage & Duration', 30, 60, 40],
+						  ['Pull', 'Pull', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Lift Damage', 'Expose', 'Duration & Combo', 'Recharge Speed', 40, 50, 60],
+						  ['MPPassive', 'Asari Justicar', 'Weapon Damage', 'Power Duration', 'Weapon Damage', 'Duration & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Phoenix Project Adept':
-			var powers = [['Singularity', 40, 40, 40],			['Smash', 70, 60, 60],					['Lash', 20, 60, 30],					['Phoenix Training', 40, 70, 20],		['Fitness', 50, 50, 50]];
-			rerolls = [1, 4, 1];
+			var powers = [['Singularity', 'Singularity', 'Recharge Speed', 'Damage', 'Duration', 'Radius', 'Lift Damage', 'Recharge Speed', 'Damage', 'Detonate', 40, 50, 40],
+						  ['Smash', 'Smash', 'Recharge Speed', 'Force & Damage', 'Biotic Combo', 'Electrical Damage', 'Force & Damage', 'Recharge Speed', 'Armor Damage', 'Impact Radius', 60, 50, 60],
+						  ['Lash', 'Lash', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Recharge Speed', 'Damage Over Time', 'Fast Recharge', 'Shield Penetration', 30, 50, 30],
+						  ['MPPassive', 'Phoenix Training', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols & Shotguns', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 30, 30, 40]];
 			break;
 		case 'N7 Fury Adept':
-			var powers = [['Annihilation Field', 40, 50, 20],	['Dark Channel', 70, 40, 40],			['Throw', 40, 80, 50],					['N7 Fury', 50, 50, 20],				['Fitness', 20, 20, 20]];
-			rerolls = [0, 6, 2];
+			var powers = [['AnnihilationField', 'Annihilation Field', 'Recharge Speed', 'Damage', 'Damage', 'Impact Radius', 'Damage Taken', 'Movement Speed', 'Damage', 'Drain', 40, 50, 30],
+						  ['DarkChannel', 'Dark Channel', 'Recharge Speed', 'Damage', 'Damage', 'Duration', 'Slow', 'Recharge Speed', 'Damage', 'Pierce', 60, 40, 40],
+						  ['Throw', 'Throw', 'Recharge Speed', 'Force', 'Force', 'Radius', 'Detonate', 'Recharge Combo', 'Force & Damage', 'Recharge Speed', 40, 70, 50],
+						  ['MPPassive', 'N7 Fury', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Volus Adept':
-			var powers = [['Stasis', 50, 40, 70],				['Biotic Orbs', 50, 30, 50],			['Shield Boost', 60, 40, 40],			['Volus Training', 60, 50, 30],			['Fitness', 20, 20, 20]];
-			rerolls = [2, 3, 1];
+			var powers = [['Stasis', 'Stasis', 'Recharge Speed', 'Duration', 'Duration', 'Stasis Strength', 'Bonus Power', 'Recharge Speed', 'Bubble', 'Vulnerability', 50, 40, 70],
+						  ['BioticOrbs', 'Biotic Orbs', 'Recharge Speed', 'Damage', 'Damage', 'Impact Radius', 'Damage', 'Recharge Speed', 'Expose', 'Orb Count', 50, 40, 50],
+						  ['ShieldBoost', 'Shield Boost', 'Recharge Speed', 'Shields', 'Impact Radius', 'Shields', 'Recharge Speed', 'Regeneration', 'Duration', 'Protection', 50, 50, 40],
+						  ['MPPassive', 'Volus Training', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Shield Boost', 'Weapon Weight', 'Weapon Damage', 50, 50, 30],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Krogan Shaman Adept':
-			var powers = [['Barrier', 20, 30, 50],				['Warp', 20, 30, 70],					['Shockwave', 100, 80, 50],				['Krogan Berserker', 50, 60, 20],		['Rage', 60, 70, 60]];
+			var powers = [['Barrier', 'Barrier', 'Recharge', 'Blast Effect', 'Blast Effect', 'Barrier Strength', 'Shield Recharge', 'Power Synergy', 'Power Recharge', 'Barrier Strength', 30, 50, 50],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 60],
+						  ['Shockwave', 'Shockwave', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Detonate', 'Reach', 'Recharge Speed', 'Lifting Shockwave', 100, 70, 50],
+						  ['MPPassive', 'Krogan Berserker', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns', 'Weapon Damage', 50, 50, 20],
+						  ['MPFitness', 'Rage', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Pure Rage', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Batarian Slasher Adept':
-			var powers = [['Lash', 20, 60, 30],					['Warp', 20, 30, 70],					['Cluster Grenade', 60, 30, 60],		['Batarian Enforcer',  40, 70, 20],		['Fitness', 50, 70, 50]];
-			rerolls = [1, 4, 1];
+			var powers = [['Lash', 'Lash', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Recharge Speed', 'Damage Over Time', 'Fast Recharge', 'Shield Penetration', 30, 50, 30],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 50],
+						  ['ClusterGrenade', 'Cluster Grenade', 'Max Grenades', 'Force & Damage', 'Force & Damage', 'Radius', 'Max Grenades', 'Damage Combo', 'Shrapnel', 'Force & Damage', 50, 30, 50],
+						  ['MPPassive', 'Batarian Enforcer', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Snipers & Shotguns', 'Damage & Ammo', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Awakened Collector Adept':
-			var powers = [['Dark Sphere', 60, 10, 50],			['Seeker Swarm', 70, 70, 70],			['Dark Channel', 70, 40, 40],			['Vengeful Ancient', 40, 70, 60],		['Ancient Warrior', 20, 50, 20]];
-			rerolls = [3, 4, 1];
+			var powers = [['DarkSphere', 'Dark Sphere', 'Recharge Speed', 'Damage', 'Damage', 'Detonation Radius', 'Damage Over Time', 'Recharge Speed', 'Dark Matter', 'Unstable Dark Sphere', 50, 5, 50],
+						  ['SeekerSwarm', 'Seeker Swarm', 'Recharge Speed', 'Damage', 'Recharge Speed', 'Slow', 'Damage Reduction', 'Damage', 'Swarm Count', 'Damage & Slow', 70, 70, 70],
+						  ['DarkChannel', 'Dark Channel', 'Recharge Speed', 'Damage', 'Damage', 'Duration', 'Slow', 'Recharge Speed', 'Damage', 'Pierce', 60, 40, 40],
+						  ['MPPassive', 'Vengeful Ancient', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Power Damage', 'Collector/Prothean Weapon Damage', 50, 60, 50],
+						  ['MPFitness','Ancient Warrior', 'Durability', 'Melee Damage', 'Ascension Damage Bonus', 'Durability', 'Ascension Recharge Speed', 'Shield Recharge', 'Ascension Mastery', 'Fitness Expert',  30, 50, 30]];
 			break;
 		case 'Human Soldier':
-			var powers = [['Adrenaline Rush', 50, 40, 60],		['Concussive Shot', 50, 70, 40],		['Frag Grenade', 50, 40, 70],			['Alliance Training', 50, 60, 20],		['Fitness', 40, 40, 40]];
+			var powers = [['AdrenalineRush', 'Adrenaline Rush', 'Recharge Speed', 'Duration', 'Hardening', 'Damage', 'Duration', 'Melee Damage', 'Shield Boost', 'Power Use', 50, 30, 60],
+						  ['ConcussiveShot', 'Concussive Shot', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Shatter', 'Recharge Speed', 'Hammer', 'Shredder', 50, 60, 40],
+						  ['FragGrenade', 'Frag Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Bleed Damage', 'Armor-Piercing', 'Shield Overload', 50, 50, 60],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 30, 30]];
 			break;
 		case 'Krogan Soldier':
-			var powers = [['Fortification', 50, 40, 50],		['Carnage', 40, 20, 50],				['Inferno Grenade', 60, 50, 70],		['Krogan Berserker', 50, 70, 20],		['Rage', 60, 70, 60]];
+			var powers = [['Fortification', 'Fortification', 'Recharge Speed', 'Melee Damage', 'Durability', 'Melee Damage', 'Recharge Speed', 'Power Synergy', 'Power Recharge', 'Durability', 50, 40, 50],
+						  ['Carnage', 'Carnage', 'Recharge Speed', 'Damage', 'Radius', 'Damage', 'Incapacitate', 'Recharge Speed', 'Armor Damage', 'Damage', 50, 40, 50],
+						  ['InfernoGrenade', 'Inferno Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Damage', 'Armor Damage', 'Radius & Shrapnel', 50, 50, 70],
+						  ['MPPassive', 'Krogan Berserker', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Rage', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Pure Rage', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Turian Soldier':
-			var powers = [['Marksman', 50, 50, 70],				['Concussive Shot', 50, 70, 40],		['Proximity Mine', 40, 80, 40],			['Turian Veteran', 70, 40, 20],			['Fitness', 20, 20, 20]];
-			rerolls = [0, 5, 1];
+			var powers = [['Marksman', 'Marksman', 'Recharge Speed', 'Duration', 'Accuracy', 'Firing Rate', 'Duration', 'Headshots', 'Accuracy & Firing Rate', 'Recharge Speed', 50, 50, 70],
+						  ['ConcussiveShot', 'Concussive Shot', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Shatter', 'Recharge Speed', 'Hammer', 'Shredder', 50, 60, 40],
+						  ['ProximityMine', 'Proximity Mine', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage Taken', 'Slow', 'Damage', 'Recharge Speed', 40, 70, 50],
+						  ['MPPassive', 'Turian Veteran', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 60, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Battlefield 3 Soldier':
-			var powers = [['Adrenaline Rush', 50, 40, 60],		['Carnage', 40, 20, 50],				['Frag Grenade', 50, 40, 70],			['Alliance Training', 50, 60, 20],		['Fitness', 40, 40, 40]];
+			var powers = [['AdrenalineRush', 'Adrenaline Rush', 'Recharge Speed', 'Duration', 'Hardening', 'Damage', 'Duration', 'Melee Damage', 'Shield Boost', 'Power Use', 50, 30, 60],
+						  ['Carnage', 'Carnage', 'Recharge Speed', 'Damage', 'Radius', 'Damage', 'Incapacitate', 'Recharge Speed', 'Armor Damage', 'Damage', 50, 40, 50],
+						  ['FragGrenade', 'Frag Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Bleed Damage', 'Armor-Piercing', 'Shield Overload', 50, 50, 60],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 30, 30]];
 			break;
 		case 'Batarian Soldier':
-			var powers = [['Ballistic Blades', 50, 60, 50],		['Blade Armor', 50, 50, 50],			['Inferno Grenade', 60, 50, 70],		['Batarian Enforcer',  40, 70, 20],		['Fitness', 50, 70, 50]];
+			var powers = [['BallisticBlades', 'Ballistic Blades', 'Recharge Speed', 'Damage', 'Damage', 'Cone Spread', 'Range', 'Recharge Speed', 'Damage & Bleed', 'Explosive Blades', 50, 60, 50],
+						  ['BladeArmor', 'Blade Armor', 'Recharge Speed', 'Melee Damage', 'Durability', 'Melee Damage', 'Recharge Speed', 'Damage Returned', 'Power Recharge', 'Durability', 50, 50, 50],
+						  ['InfernoGrenade', 'Inferno Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Damage', 'Armor Damage', 'Radius & Shrapnel', 50, 50, 70],
+						  ['MPPassive', 'Batarian Enforcer', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Snipers & Shotguns', 'Damage & Ammo', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Vorcha Soldier':
-			var powers = [['Bloodlust', 30, 50, 30],			['Flamer', 40, 60, 60],					['Carnage', 40, 20, 50],				['Vorcha Resilience', 50, 70, 20],		['Fitness', 40, 40, 40]];
-			rerolls = [0, 4, 1];
+			var powers = [['Bloodlust', 'Bloodlust', 'Recharge Speed', 'Health Regeneration', 'Melee Damage', 'Health Regeneration', 'Power Damage', 'Weapon Damage', 'Movement & Melee', 'Health Regeneration', 30, 50, 30],
+						  ['Flamer', 'Flamer', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Damage', 'Duration', 'Armor Damage', 'Shield Damage', 40, 60, 50],
+						  ['Carnage', 'Carnage', 'Recharge Speed', 'Damage', 'Radius', 'Damage', 'Incapacitate', 'Recharge Speed', 'Armor Damage', 'Damage', 50, 40, 50],
+						  ['MPPassive', 'Vorcha Resilience', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns & Assault Rifles', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 40, 40]];
 			break;
 		case 'N7 Destroyer Soldier':
-			var powers = [['Devastator Mode', 40, 50, 50],		['Hawk Missile Launcher', 70, 60, 60],	['Multi-Frag Grenade', 60, 40, 60],		['T5-V Battlesuit', 70, 60, 20],		['T5-V Internal Systems', 30, 40, 30]];
-			rerolls = [0, 5, 1];
+			var powers = [['DevastatorMode', 'Devastator Mode', 'Magazine Size', 'Damage Bonus', 'Shield Recharge Delay', 'Weapon Accuracy', 'Magazine Size', 'Rate of Fire', 'Max Shields', 'Damage Bonus', 40, 50, 50],
+						  ['MissileLauncher', 'Hawk Missile Launcher', 'Refire Time', 'Missile Damage', 'Shield Penalty', 'Damage & Force', 'Refire Time', 'Armor Damage', 'Hydra Missiles', 'Cobra Missiles', 60, 50, 60],
+						  ['MultiFragGrenade', 'Multi-Frag Grenade', 'Max Grenades', 'Force & Damage', 'Force & Damage', 'Radius', 'Max Grenades', 'Force & Damage', 'Grenade Count', 'Force & Damage', 50, 50, 50],
+						  ['MPPassive', 'T5-V Battlesuit', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 60, 50, 20],
+						  ['MPFitness', 'T5-V Internal Systems', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Turian Havoc Soldier':
-			var powers = [['Havoc Strike', 60, 60, 30],			['Stimulant Pack', 50, 30, 50],			['Cryo Blast', 30, 20, 30],				['Armiger Legion', 50, 50, 20],			['Fitness', 50, 70, 50]];
+			var powers = [['HavocStrike', 'Havoc Strike', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Recharge Speed', 'Weapon Synergy', 'Melee Damage', 'Force & Damage', 'Incendiary Strike', 60, 50, 40],
+						  ['StimPack', 'Stimulant Pack', 'Pack Capacity', 'Damage', 'Damage', 'Max Shields', 'Pack Capacity', 'Duration', 'Weapon Damage', 'Survival', 50, 50, 50],
+						  ['CryoBlast', 'Cryo Blast', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Speed Reduction', 'Cryo Explosion', 'Recharge Speed', 'Frozen Vulnerability', 40, 30, 30],
+						  ['MPPassive', 'Armiger Legion', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 50, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Geth Trooper Soldier':
-			var powers = [['Flamer', 40, 60, 60],				['Fortification', 50, 40, 50],			['Hunter Mode', 50, 50, 50],			['Networked AI', 40, 60, 20],			['Advanced Hardware', 50, 50, 50]];
-			rerolls = [1, 4, 1];
+			var powers = [['Flamer', 'Flamer', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Damage', 'Duration', 'Armor Damage', 'Shield Damage', 40, 60, 50],
+						  ['Fortification', 'Fortification', 'Recharge Speed', 'Melee Damage', 'Durability', 'Melee Damage', 'Recharge Speed', 'Power Synergy', 'Power Recharge', 'Durability', 50, 40, 50],
+						  ['HunterMode', 'Hunter Mode', 'Movement Speed', 'Damage', 'Power Recharge', 'Weapon Accuracy', 'Power Damage', 'Rate of Fire', 'Speed & Vision', 'Damage', 50, 50, 50],
+						  ['MPPassive', 'Networked AI', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Sniper & Assault Rifles', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Advanced Hardware', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 30, 30, 40]];
 			break;
 		case 'Quarian Marksman Soldier':
-			var powers = [['Marksman', 50, 50, 70],				['Tactical Scan', 70, 10, 50],			['Sabotage', 20, 40, 30],				['Quarian Defender', 70, 30, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [0, 6, 2];
+			var powers = [['Marksman', 'Marksman', 'Recharge Speed', 'Duration', 'Accuracy', 'Firing Rate', 'Duration', 'Headshots', 'Accuracy & Firing Rate', 'Recharge Speed', 50, 50, 70],
+						  ['TacticalScan', 'Tactical Scan', 'Recharge Speed', 'Duration', 'Weapon Damage', 'Power Damage', 'Headshots', 'Movement Speed', 'Damage', 'Area Scan', 60, 5, 50],
+						  ['Sabotage', 'Sabotage', 'Recharge Speed', 'Radius', 'Duration', 'Backfire', 'Explosive Hack', 'Recharge Speed', 'Berserk', 'Tech Vulnerability', 30, 40, 50],
+						  ['MPPassive', 'Quarian Defender', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 70, 30, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Geth Juggernaut Soldier':
-			var powers = [['Hex Shield', 60, 60, 60],			['Siege Pulse', 60, 50, 50],			['Geth Turret', 40, 40, 50],			['Geth Juggernaut', 50, 50, 20],		['Hardened Platform', 40, 50, 50]];
-			rerolls = [1, 4, 1];
+			var powers = [['HexShield', 'Hex Shield', 'Recharge Speed', 'Shield Strength', 'Pulse', 'Shield Strength', 'Shock', 'Duration', 'Damage Synergy', 'Large Shield', 50, 50, 50],
+						  ['SiegePulse', 'Siege Pulse', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage Protection', 'Recharge Speed', 'Numbers of Shots', 'Resistance Damage', 50, 50, 50],
+						  ['GethTurret', 'Geth Turret', 'Recharge Speed', 'Shields & Damage', 'Shields & Damage', 'Shield Restore', 'Armor Damage', 'Restore Range', 'Flamethrower', 'Restore Frequency', 50, 50, 50],
+						  ['MPPassive', 'Geth Juggernaut', 'Weapon Damage', 'Stability & Ammo', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Stability & Ammo', 'Weapon Weight', 'Weapon Damage', 50, 50, 20],
+						  ['MPFitness', 'Hardened Platform', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Speed Boost', 'Shield Recharge', 'Squad Command', 'Power Transfer', 40, 50, 50]];
 			break;
 		case 'Human Engineer':
-			var powers = [['Combat Drone', 20, 70, 20],			['Incinerate', 40, 70, 30],				['Overload', 70, 80, 40],				['Alliance Training', 50, 60, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [2, 4, 1];
+			var powers = [['CombatDrone', 'Combat Drone', 'Recharge Speed', 'Shields & Damage', 'Shields & Damage', 'Detonate', 'Shock', 'Shields & Damage', 'Rockets', 'Chain Lightning', 50, 50, 30],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 40, 60, 30],
+						  ['Overload', 'Overload', 'Recharge Speed', 'Damage', 'Chain Overload', 'Damage', 'Neural Shock', 'Recharge Speed', 'Chain Overload', 'Shield Damage', 60, 70, 40],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Quarian Female Engineer':
-			var powers = [['Sentry Turret', 30, 50, 20],		['Incinerate', 60, 70, 60],				['Cryo Blast', 30, 20, 30],				['Quarian Defender', 40, 70, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [1, 4, 1];
+			var powers = [['SentryTurret', 'Sentry Turret', 'Recharge Speed', 'Shields & Damage', 'Shields & Damage', 'Shock', 'Cryo Ammo', 'Armor-Piercing Ammo', 'Rockets', 'Flamethrower', 60, 50, 50],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 60],
+						  ['CryoBlast', 'Cryo Blast', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Speed Reduction', 'Cryo Explosion', 'Recharge Speed', 'Frozen Vulnerability', 50, 30, 30],
+						  ['MPPassive', 'Quarian Defender', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'SMGs', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Salarian Engineer':
-			var powers = [['Energy Drain', 40, 70, 30],			['Decoy', 40, 70, 80],					['Incinerate', 60, 70, 30],				['Salarian Operative', 60, 50, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [0, 4, 1];
+			var powers = [['EnergyDrain', 'Energy Drain', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Drain', 'Recharge Speed', 'Damage', 'Armor Boost', 50, 60, 40],
+						  ['Decoy', 'Decoy', 'Recharge Speed', 'Duration', 'Duration', 'Durability', 'Shock', 'Recharge Speed', 'Exploding Decoy', 'Shields & Duration', 50, 60, 60],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 30],
+						  ['MPPassive', 'Salarian Operative', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Sniper Rifles', 'Weapon Damage', 50, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Geth Engineer':
-			var powers = [['Geth Turret', 40, 40, 50],			['Hunter Mode', 50, 50, 50],			['Overload', 70, 80, 40],				['Networked AI', 50, 60, 20],			['Advanced Hardware', 20, 30, 30]];
-			rerolls = [1, 4, 1];
+			var powers = [['GethTurret', 'Geth Turret', 'Recharge Speed', 'Shields & Damage', 'Shields & Damage', 'Shield Restore', 'Armor Damage', 'Restore Range', 'Flamethrower', 'Restore Frequency', 40, 40, 50],
+						  ['HunterMode', 'Hunter Mode', 'Movement Speed', 'Damage', 'Power Recharge', 'Weapon Accuracy', 'Power Damage', 'Rate of Fire', 'Speed & Vision', 'Damage', 50, 50, 50],
+						  ['Overload', 'Overload', 'Recharge Speed', 'Damage', 'Chain Overload', 'Damage', 'Neural Shock', 'Recharge Speed', 'Chain Overload', 'Shield Damage', 60, 70, 40],
+						  ['MPPassive', 'Networked AI', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Sniper & Assault Rifles', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Advanced Hardware', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Quarian Male Engineer':
-			var powers = [['Tactical Scan', 40, 10, 50],		['Incinerate', 40, 70, 30],				['Arc Grenade', 70, 20, 40],			['Quarian Defender', 40, 70, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [2, 5, 1];
+			var powers = [['TacticalScan', 'Tactical Scan', 'Recharge Speed', 'Duration', 'Weapon Damage', 'Power Damage', 'Headshots', 'Movement Speed', 'Damage', 'Area Scan', 40, 5, 50],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 30],
+						  ['ArcGrenade', 'Arc Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Electrical Damage', 'Armor-Piercing', 'Shield Overload', 50, 30, 40],
+						  ['MPPassive', 'Quarian Defender', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'N7 Demolisher Engineer':
-			var powers = [['Supply Pylon', 80, 40, 80],			['Arc Grenade', 70, 20, 40],			['Homing Grenade', 40, 30, 50],			['N7 Demolisher', 40, 70, 60],			['Fitness', 20, 20, 20]];
-			rerolls = [1, 5, 1];
+			var powers = [['SupplyPylon', 'Supply Pylon', 'Recharge Speed', 'Resupply Frequency', 'Resupply Frequency', 'Radius', 'Weapon Damage', 'Power Damage', 'Extra Grenade', 'Max Shields', 70, 50, 70],
+						  ['ArcGrenade', 'Arc Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Electrical Damage', 'Armor-Piercing', 'Shield Overload', 50, 30, 40],
+						  ['HomingGrenade', 'Homing Grenade', 'Capacity', 'Damage', 'Damage', 'Impact Radius', 'Capacity', 'Fire Damage', 'Armor Damage', 'Split Grenade', 50, 50, 50],
+						  ['MPPassive', 'N7 Demolisher', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Max Grenades', 'Power Damage', 'Headshots', 'Power Damage', 'Weapon Damage & Max Grenades', 50, 60, 50],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Volus Engineer':
-			var powers = [['Recon Mine', 50, 50, 40],			['Proximity Mine', 40, 80, 40],			['Shield Boost', 60, 40, 40],			['Volus Training', 60, 50, 30],			['Fitness', 20, 20, 20]];
-			rerolls = [2, 3, 1];
+			var powers = [['ReconMine', 'Recon Mine', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage', 'Recharge Speed', 'Armor Damage', 'Invasive Scan', 50, 50, 40],
+						  ['ProximityMine', 'Proximity Mine', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage Taken', 'Slow', 'Damage', 'Recharge Speed', 40, 70, 50],
+						  ['ShieldBoost', 'Shield Boost', 'Recharge Speed', 'Shields', 'Impact Radius', 'Shields', 'Recharge Speed', 'Regeneration', 'Duration', 'Protection', 50, 50, 40],
+						  ['MPPassive', 'Volus Training', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Shield Boost', 'Weapon Weight', 'Weapon Damage', 50, 50, 30],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Turian Saboteur Engineer':
-			var powers = [['Sentry Turret', 30, 50, 20],		['Sabotage', 20, 40, 20],				['Homing Grenade', 40, 30, 50],			['Armiger Legion', 50, 50, 20],			['Fitness', 20, 20, 20]];
-			rerolls = [2, 4, 1];
+			var powers = [['SentryTurret', 'Sentry Turret', 'Recharge Speed', 'Shields & Damage', 'Shields & Damage', 'Shock', 'Cryo Ammo', 'Armor-Piercing Ammo', 'Rockets', 'Flamethrower', 60, 50, 40],
+						  ['Sabotage', 'Sabotage', 'Recharge Speed', 'Radius', 'Duration', 'Backfire', 'Explosive Hack', 'Recharge Speed', 'Berserk', 'Tech Vulnerability', 30, 40, 30],
+						  ['HomingGrenade', 'Homing Grenade', 'Capacity', 'Damage', 'Damage', 'Impact Radius', 'Capacity', 'Fire Damage', 'Armor Damage', 'Split Grenade', 50, 50, 50],
+						  ['MPPassive', 'Armiger Legion', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 50, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 40, 40]];
 			break;
 		case 'Vorcha Hunter Engineer':
-			var powers = [['Submission Net', 60, 50, 40],		['Incinerate', 60, 70, 30],				['Bloodlust', 30, 50, 30],				['Vorcha Resilience', 50, 70, 20],		['Fitness', 30, 30, 30]];
-			rerolls = [2, 4, 1];
+			var powers = [['SubmissionNet', 'Submission Net', 'Recharge Speed', 'Damage & Duration', 'Damage', 'Incapacitate', 'Damage & Slow', 'Recharge Speed', 'Shield & Barrier', 'Electric Field', 60, 50, 50],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 30],
+						  ['Bloodlust', 'Bloodlust', 'Recharge Speed', 'Health Regeneration', 'Melee Damage', 'Health Regeneration', 'Power Damage', 'Weapon Damage', 'Movement & Melee', 'Health Regeneration', 30, 50, 30],
+						  ['MPPassive', 'Vorcha Resilience', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns & Assault Rifles', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 30, 30]];
 			break;
 		case 'Talon Mercenary Engineer':
-			var powers = [['Cain Trip Mine', 50, 70, 50],		['Concussive Arrows', 40, 50, 50],		['Armor-Piercing Arrows', 50, 30, 50],	['Elite Mercenary', 40, 70, 50],		['Omni-Bow Mastery', 60, 70, 70]];
+			var powers = [['CainMine', 'Cain Trip Mine', 'Grenade Capacity', 'Damage', 'Damage', 'Radius', 'Armor Damage', 'Grenade Capacity', 'Damage', 'Radius', 50, 70, 50],
+						  ['ConcussiveArrow', 'Concussive Arrows', 'Grenade Capacity', 'Force & Damage', 'Force & Damage', 'Grenade Capacity', 'Shock', 'Chill', 'Arrow Count', 'Grenade Capacity', 50, 50, 50],
+						  ['APArrow', 'Armor-Piercing Arrows', 'Grenade Capacity', 'Damage', 'Damage', 'Grenade Capacity', 'Shred', 'Armor Damage', 'Arrow Count', 'Grenade Capacity', 50, 40, 50],
+						  ['MPPassive', 'Elite Mercenary', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Power Damage', 'Power Damage', 'Headshots', 'Charge Regeneration', 'Weapon Damage', 50, 60, 50],
+						  ['MPFitness', 'Omni-Bow Mastery', 'Durability', 'Omni-Bow Damage', 'Omni-Bow Damage', 'Durability', 'Killing Spree', 'Shield Recharge', 'Omni-Bow Damage', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Human Sentinel':
-			var powers = [['Tech Armor', 20, 70, 50],			['Warp', 20, 30, 70],					['Throw', 40, 80, 50],					['Alliance Training', 50, 60, 20],		['Fitness', 40, 40, 40]];
+			var powers = [['TechArmor', 'Tech Armor', 'Recharge Speed', 'Damage & Radius', 'Damage & Radius', 'Durability', 'Power Damage', 'Melee Damage', 'Power Recharge', 'Durability', 20, 70, 50],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 60],
+						  ['Throw', 'Throw', 'Recharge Speed', 'Force', 'Force', 'Radius', 'Detonate', 'Recharge Combo', 'Force & Damage', 'Recharge Speed', 40, 70, 50],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 40, 40]];
 			break;
 		case 'Turian Sentinel':
-			var powers = [['Tech Armor', 20, 70, 50],			['Warp', 30, 30, 70],					['Overload', 70, 80, 40],				['Turian Veteran', 70, 40, 20],			['Fitness', 40, 40, 40]];
-			rerolls = [4, 4, 1];
+			var powers = [['TechArmor', 'Tech Armor', 'Recharge Speed', 'Damage & Radius', 'Damage & Radius', 'Durability', 'Power Damage', 'Melee Damage', 'Power Recharge', 'Durability', 20, 70, 50],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 50, 40, 60],
+						  ['Overload', 'Overload', 'Recharge Speed', 'Damage', 'Chain Overload', 'Damage', 'Neural Shock', 'Recharge Speed', 'Chain Overload', 'Shield Damage', 60, 70, 40],
+						  ['MPPassive', 'Turian Veteran', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 60, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 40, 40]];
 			break;
 		case 'Krogan Sentinel':
-			var powers = [['Tech Armor', 20, 50, 50],			['Incinerate', 60, 70, 30],				['Lift Grenade', 70, 90, 10],			['Krogan Berserker', 50, 60, 20],		['Rage', 60, 70, 60]];
+			var powers = [['TechArmor', 'Tech Armor', 'Recharge Speed', 'Damage & Radius', 'Damage & Radius', 'Durability', 'Power Damage', 'Melee Damage', 'Power Recharge', 'Durability', 20, 50, 50],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 30],
+						  ['LiftGrenade', 'Lift Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Duration', 'Slam', 'Damage & Radius', 50, 95, 5],
+						  ['MPPassive', 'Krogan Berserker', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Rage', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Pure Rage', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Batarian Sentinel':
-			var powers = [['Blade Armor', 50, 50, 50],			['Shockwave', 100, 40, 50],				['Submission Net', 60, 50, 40],			['Batarian Enforcer',  40, 70, 20],		['Fitness', 50, 70, 50]];
+			var powers = [['BladeArmor', 'Blade Armor', 'Recharge Speed', 'Melee Damage', 'Durability', 'Melee Damage', 'Recharge Speed', 'Damage Returned', 'Power Recharge', 'Durability', 50, 50, 50],
+						  ['Shockwave', 'Shockwave', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Detonate', 'Reach', 'Recharge Speed', 'Lifting Shockwave', 100, 50, 50],
+						  ['SubmissionNet', 'Submission Net', 'Recharge Speed', 'Damage & Duration', 'Damage', 'Incapacitate', 'Damage & Slow', 'Recharge Speed', 'Shield & Barrier', 'Electric Field', 60, 50, 50],
+						  ['MPPassive', 'Batarian Enforcer', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Snipers & Shotguns', 'Damage & Ammo', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Vorcha Sentinel':
-			var powers = [['Bloodlust', 30, 70, 30],			['Flamer', 40, 60, 60],					['Cluster Grenade', 60, 50, 70],		['Vorcha Resilience', 40, 70, 20],		['Fitness', 40, 40, 40]];
-			rerolls = [0, 4, 1];
+			var powers = [['Bloodlust', 'Bloodlust', 'Recharge Speed', 'Health Regeneration', 'Melee Damage', 'Health Regeneration', 'Power Damage', 'Weapon Damage', 'Movement & Melee', 'Health Regeneration', 30, 50, 30],
+						  ['Flamer', 'Flamer', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Damage', 'Duration', 'Armor Damage', 'Shield Damage', 40, 60, 50],
+						  ['ClusterGrenade', 'Cluster Grenade', 'Max Grenades', 'Force & Damage', 'Force & Damage', 'Radius', 'Max Grenades', 'Damage Combo', 'Shrapnel', 'Force & Damage', 50, 60, 60],
+						  ['MPPassive', 'Vorcha Resilience', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns & Assault Rifles', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 40, 40]];
 			break;
 		case 'N7 Paladin Sentinel':
-			var powers = [['Energy Drain', 40, 70, 30],			['Incinerate', 60, 70, 60],				['Snap Freeze', 20, 30, 90],			['N7 Paladin', 50, 60, 30],				['Shield Mastery', 40, 40, 50]];
-			rerolls = [2, 4, 1];
+			var powers = [['EnergyDrain', 'Energy Drain', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Drain', 'Recharge Speed', 'Damage', 'Armor Boost', 50, 60, 40],
+						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 60],
+						  ['SnapFreeze', 'Snap Freeze', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Duration & Slow', 'Cryo Explosion', 'Damage & Weakness', 'Tech Combo', 30, 40, 95],
+						  ['MPPassive', 'N7 Paladin', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 30],
+						  ['MPFitness', 'Shield Mastery', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Shield Durability', 'Shield Recharge', 'Fire Shield', 'Cryo Shield', 50, 40, 70]];
 			break;
 		case 'Volus Mercenary Sentinel':
-			var powers = [['Decoy', 40, 70, 80],				['Combat Drone', 20, 70, 20],			['Shield Boost', 60, 40, 40],			['Volus Training', 60, 50, 30],			['Fitness', 20, 20, 20]];
-			rerolls = [2, 3, 1];
+			var powers = [['Decoy', 'Decoy', 'Recharge Speed', 'Duration', 'Duration', 'Durability', 'Shock', 'Recharge Speed', 'Exploding Decoy', 'Shields & Duration', 50, 60, 60],
+						  ['CombatDrone', 'Combat Drone', 'Recharge Speed', 'Shields & Damage', 'Shields & Damage', 'Detonate', 'Shock', 'Shields & Damage', 'Rockets', 'Chain Lightning', 50, 50, 30],
+						  ['ShieldBoost', 'Shield Boost', 'Recharge Speed', 'Shields', 'Impact Radius', 'Shields', 'Recharge Speed', 'Regeneration', 'Duration', 'Protection', 50, 50, 40],
+						  ['MPPassive', 'Volus Training', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Shield Boost', 'Weapon Weight', 'Weapon Damage', 50, 50, 30],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 20, 20]];
 			break;
 		case 'Asari Valkyrie Sentinel':
-			var powers = [['Tech Armor', 20, 70, 50],			['Warp', 20, 30, 70],					['Annihilation Field', 40, 50, 20],		['Asari Valkyrie', 50, 50, 30],			['Fitness', 40, 40, 40]];
-			rerolls = [2, 6, 2];
+			var powers = [['TechArmor', 'Tech Armor', 'Recharge Speed', 'Damage & Radius', 'Damage & Radius', 'Durability', 'Power Damage', 'Melee Damage', 'Power Recharge', 'Durability', 20, 70, 50],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 50],
+						  ['AnnihilationField', 'Annihilation Field', 'Recharge Speed', 'Damage', 'Damage', 'Impact Radius', 'Damage Taken', 'Movement Speed', 'Damage', 'Drain', 40, 50, 30],
+						  ['MPPassive', 'Asari Valkyrie', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols', 'Weapon Damage', 50, 50, 30],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 30, 40, 40]];
 			break;
 		case 'Krogan Warlord Sentinel':
-			var powers = [['Tech Armor', 20, 20, 30],			['Biotic Hammer', 70, 30, 30],			['Electrical Hammer', 60, 60, 50],		['Krogan Warlord', 30, 70, 20],			['Warlord Rage', 60, 80, 60]];
-			rerolls = [4, 4, 1];
+			var powers = [['TechArmor', 'Tech Armor', 'Recharge Speed', 'Damage & Radius', 'Damage & Radius', 'Durability', 'Power Damage', 'Melee Damage', 'Power Recharge', 'Durability', 20, 40, 40],
+						  ['BioticHammer', 'Biotic Hammer', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Recharge Speed', 'Biotic Combo', 'Armor Damage', 'Power Hammer', 'Number of Charges', 70, 30, 40],
+						  ['ElectricalHammer', 'Electrical Hammer', 'Recharge Speed', 'Radius', 'Shields & Barrier', 'Radius', 'Fire Damage', 'Chill', 'Radius & Combo', 'Number of Charges', 60, 60, 50],
+						  ['MPPassive', 'Krogan Warlord', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns', 'Weapon Damage', 40, 70, 20],
+						  ['MPFitness', 'Warlord Rage', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Pure Rage', 'Fitness Expert', 60, 70, 50]];
 			break;
 		case 'Human Infiltrator':
-			var powers = [['Tactical Cloak', 40, 70, 40],		['Cryo Blast', 30, 20, 30],				['Sticky Grenade', 50, 20, 80],			['Alliance Training', 50, 60, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [0, 4, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 40, 60, 50],
+						  ['CryoBlast', 'Cryo Blast', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Speed Reduction', 'Cryo Explosion', 'Recharge Speed', 'Frozen Vulnerability', 40, 30, 30],
+						  ['StickyGrenade', 'Sticky Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Armor-Piercing', 'Damage', 'Proximity Trap', 50, 30, 50],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Salarian Infiltrator':
-			var powers = [['Tactical Cloak', 40, 70, 30],		['Proximity Mine', 40, 80, 50],			['Energy Drain', 40, 70, 50],			['Salarian Operative', 60, 50, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [0, 4, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 40, 60, 40],
+						  ['ProximityMine', 'Proximity Mine', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage Taken', 'Slow', 'Damage', 'Recharge Speed', 40, 70, 50],
+						  ['EnergyDrain', 'Energy Drain', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Drain', 'Recharge Speed', 'Damage', 'Armor Boost', 50, 60, 40],
+						  ['MPPassive', 'Salarian Operative', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Sniper Rifles', 'Weapon Damage', 60, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Quarian Female Infiltrator':
-			var powers = [['Tactical Cloak', 40, 70, 50],		['Sticky Grenade', 50, 20, 80],			['Sabotage', 20, 60, 20],				['Quarian Defender', 40, 70, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [0, 4, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 40, 60, 50],
+						  ['StickyGrenade', 'Sticky Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Armor-Piercing', 'Damage', 'Proximity Trap', 50, 30, 50],
+						  ['Sabotage', 'Sabotage', 'Recharge Speed', 'Radius', 'Duration', 'Backfire', 'Explosive Hack', 'Recharge Speed', 'Berserk', 'Tech Vulnerability', 30, 60, 30],
+						  ['MPPassive', 'Quarian Defender', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'SMGs', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Geth Infiltrator':
-			var powers = [['Tactical Cloak', 40, 50, 30],		['Proximity Mine', 40, 80, 50],			['Hunter Mode', 30, 30, 50],			['Networked AI', 70, 40, 20],			['Advanced Hardware', 50, 50, 50]];
-			rerolls = [2, 4, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 40, 50, 30],
+						  ['ProximityMine', 'Proximity Mine', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage Taken', 'Slow', 'Damage', 'Recharge Speed', 40, 70, 50],
+						  ['HunterMode', 'Hunter Mode', 'Movement Speed', 'Damage', 'Power Recharge', 'Weapon Accuracy', 'Power Damage', 'Rate of Fire', 'Speed & Vision', 'Damage', 30, 30, 50],
+						  ['MPPassive', 'Networked AI', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Sniper & Assault Rifles', 'Weapon Damage', 60, 50, 20],
+						  ['MPFitness', 'Advanced Hardware', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 30, 40, 50]];
 			break;
 		case 'Quarian Male Infiltrator':
-			var powers = [['Tactical Cloak', 40, 70, 30],		['Tactical Scan', 60, 10, 50],			['Arc Grenade', 70, 20, 50],			['Quarian Defender', 60, 60, 20],		['Fitness', 20, 20, 20]];
-			rerolls = [2, 5, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 40, 60, 40],
+						  ['TacticalScan', 'Tactical Scan', 'Recharge Speed', 'Duration', 'Weapon Damage', 'Power Damage', 'Headshots', 'Movement Speed', 'Damage', 'Area Scan', 50, 5, 50],
+						  ['ArcGrenade', 'Arc Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Electrical Damage', 'Armor-Piercing', 'Shield Overload', 50, 30, 40],
+						  ['MPPassive', 'Quarian Defender', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'N7 Shadow Infiltrator':
-			var powers = [['Tactical Cloak', 60, 20, 70],		['Electric Slash', 50, 10, 50],			['Shadow Strike', 50, 80, 30],			['N7 Shadow', 40, 70, 20],				['Sword Mastery', 80, 80, 50]];
-			rerolls = [0, 5, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 60, 30, 70],
+						  ['ElectricSlash', 'Electric Slash', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Detonate', 'Recharge Speed', 'Damage', 'Range', 50, 5, 50],
+						  ['ShadowStrike', 'Shadow Strike', 'Recharge Speed', 'Damage', 'Damage', 'Damage Protection', 'Electric Damage', 'Recharge Speed', 'Damage', 'Shield Drain', 50, 70, 40],
+						  ['MPPassive', 'N7 Shadow', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Sword Mastery', 'Durability', 'Sword Damage', 'Sword Damage', 'Durability', 'Martial Artist', 'Shield Recharge & Speed', 'Shield Damage', 'Armor Damage', 60, 70, 50]];
 			break;
 		case 'Turian Ghost Infiltrator':
-			var powers = [['Tactical Cloak', 40, 50, 30],		['Stimulant Pack', 50, 30, 50],			['Overload', 70, 80, 40],				['Armiger Legion', 60, 50, 20],			['Fitness', 40, 40, 40]];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Assault Rifle Damage', 40, 50, 40],
+						  ['StimPack', 'Stimulant Pack', 'Pack Capacity', 'Damage', 'Damage', 'Max Shields', 'Pack Capacity', 'Duration', 'Weapon Damage', 'Survival', 50, 50, 50],
+						  ['Overload', 'Overload', 'Recharge Speed', 'Damage', 'Chain Overload', 'Damage', 'Neural Shock', 'Recharge Speed', 'Chain Overload', 'Shield Damage', 60, 70, 40],
+						  ['MPPassive', 'Armiger Legion', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 50, 50, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 40, 40, 40]];
 			break;
 		case 'Drell Assassin Infiltrator':
-			var powers = [['Tactical Cloak', 40, 70, 10],		['Homing Grenade', 40, 30, 60],			['Recon Mine', 50, 70, 40],				['Drell Assassin', 40, 70, 20],			['Fitness', 20, 20, 20]];
-			rerolls = [0, 4, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Sniper Damage', 40, 60, 5],
+						  ['HomingGrenade', 'Homing Grenade', 'Capacity', 'Damage', 'Damage', 'Impact Radius', 'Capacity', 'Fire Damage', 'Armor Damage', 'Split Grenade', 50, 50, 50],
+						  ['ReconMine', 'Recon Mine', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Damage', 'Recharge Speed', 'Armor Damage', 'Invasive Scan', 50, 60, 40],
+						  ['MPPassive', 'Drell Assassin', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Asari Huntress Infiltrator':
-			var powers = [['Tactical Cloak', 40, 70, 30],		['Dark Channel', 70, 60, 40],			['Warp', 20, 30, 70],					['Asari Huntress', 30, 70, 20],			['Fitness', 20, 20, 20]];
-			rerolls = [0, 4, 1];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Power Damage', 40, 60, 40],
+						  ['DarkChannel', 'Dark Channel', 'Recharge Speed', 'Damage', 'Damage', 'Duration', 'Slow', 'Recharge Speed', 'Damage', 'Pierce', 60, 50, 40],
+						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 60],
+						  ['MPPassive', 'Asari Huntress', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols', 'Weapon Damage', 40, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Alliance Infiltration Unit Infiltrator':
-			var powers = [['Tactical Cloak', 40, 50, 30],		['Snap Freeze', 40, 30, 50],			['Repair Matrix', 50, 30, 30],			['Unshackled A.I.', 60, 50, 20],		['Fitness Module', 40, 40, 40]];
+			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Shotgun Damage', 40, 50, 40],
+						  ['SnapFreeze', 'Snap Freeze', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Duration & Slow', 'Cryo Explosion', 'Damage & Weakness', 'Tech Combo', 40, 30, 50],
+						  ['RepairMatrix', 'Repair Matrix', 'Charge Capacity', 'Shields Restored', 'Survivability', 'Shields Restored', 'Charges Capacity', 'Duration', 'Lasting Repair Matrix', 'Enhanced Repair Matrix', 50, 40, 40],
+						  ['MPPassive', 'Unshackled A.I.', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols & Shotguns', 'Weapon Damage', 50, 50, 20],
+						  ['MPFitness', 'Fitness Module', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 40, 40, 40]];
 			break;
 		case 'Human Vanguard':
-			var powers = [['Biotic Charge', 30, 40, 30],		['Shockwave', 100, 80, 50],				['Nova', 60, 50, 70],					['Alliance Training', 50, 60, 20],		['Fitness', 30, 50, 30]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 40, 30],
+						  ['Shockwave', 'Shockwave', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Detonate', 'Reach', 'Recharge Speed', 'Lifting Shockwave', 100, 60, 50],
+						  ['Nova', 'Nova', 'Radius', 'Force & Damage', 'Force & Damage', 'Radius', 'Power Recharge', 'Half Blast', 'Pierce', 'Sustain', 50, 50, 70],
+						  ['MPPassive', 'Alliance Training', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 40, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 50, 30]];
 			break;
 		case 'Drell Vanguard':
-			var powers = [['Biotic Charge', 30, 40, 20],		['Pull', 40, 50, 60],					['Cluster Grenade', 60, 50, 70],		['Drell Assassin', 40, 70, 20],			['Fitness', 30, 50, 30]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 40, 30],
+						  ['Pull', 'Pull', 'Recharge Speed', 'Duration', 'Duration', 'Radius', 'Lift Damage', 'Expose', 'Duration & Combo', 'Recharge Speed', 40, 50, 60],
+						  ['ClusterGrenade', 'Cluster Grenade', 'Max Grenades', 'Force & Damage', 'Force & Damage', 'Radius', 'Max Grenades', 'Damage Combo', 'Shrapnel', 'Force & Damage', 50, 60, 50],
+						  ['MPPassive', 'Drell Assassin', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 30, 50, 30]];
 			break;
 		case 'Asari Vanguard':
-			var powers = [['Biotic Charge', 30, 40, 20],		['Stasis', 50, 50, 70],					['Lift Grenade', 70, 90, 10],			['Asari Justicar', 50, 60, 20],			['Fitness', 30, 50, 30]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 40, 30],
+						  ['Stasis', 'Stasis', 'Recharge Speed', 'Duration', 'Duration', 'Stasis Strength', 'Bonus Power', 'Recharge Speed', 'Bubble', 'Vulnerability', 50, 40, 70],
+						  ['LiftGrenade', 'Lift Grenade', 'Max Grenades', 'Damage', 'Damage', 'Radius', 'Max Grenades', 'Duration', 'Slam', 'Damage & Radius', 50, 95, 15],
+						  ['MPPassive', 'Asari Justicar', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 30, 50, 30]];
 			break;
 		case 'Krogan Vanguard':
-			var powers = [['Biotic Charge', 30, 50, 20],		['Carnage', 40, 20, 50],				['Barrier', 20, 30, 50],				['Krogan Battlemaster', 50, 60, 20],	['Rage', 60, 80, 60]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Melee Synergy', 'Bonus Power', 'Barrier', 30, 50, 30],
+						  ['Carnage', 'Carnage', 'Recharge Speed', 'Damage', 'Radius', 'Damage', 'Incapacitate', 'Recharge Speed', 'Armor Damage', 'Damage', 50, 40, 50],
+						  ['Barrier', 'Barrier', 'Recharge', 'Blast Effect', 'Blast Effect', 'Barrier Strength', 'Shield Recharge', 'Power Synergy', 'Power Recharge', 'Barrier Strength', 30, 40, 50],
+						  ['MPPassive', 'Krogan Battlemaster', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Shotguns', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Rage', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Pure Rage', 'Fitness Expert', 50, 70, 60]];
 			break;
 		case 'Phoenix Project Vanguard':
-			var powers = [['Biotic Charge', 30, 40, 20],		['Smash', 50, 60, 60],					['Lash', 20, 60, 30],					['Phoenix Training', 40, 70, 20],		['Fitness', 50, 50, 50]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 40, 30],
+						  ['Smash', 'Smash', 'Recharge Speed', 'Force & Damage', 'Biotic Combo', 'Electrical Damage', 'Force & Damage', 'Recharge Speed', 'Armor Damage', 'Impact Radius', 60, 50, 60],
+						  ['Lash', 'Lash', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Recharge Speed', 'Damage Over Time', 'Fast Recharge', 'Shield Penetration', 30, 50, 30],
+						  ['MPPassive', 'Phoenix Training', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols & Shotguns', 'Weapon Damage', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'N7 Slayer Vanguard':
-			var powers = [['Biotic Charge', 30, 40, 20],		['Phase Disruptor', 60, 20, 60],		['Biotic Slash', 50, 60, 50],			['N7 Slayer', 40, 70, 20],				['Fitness', 50, 50, 50]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 40, 40],
+						  ['PhaseDisruptor', 'Phase Disruptor', 'Radius', 'Damage', 'Damage', 'Radius', 'Knockdown', 'Efficient Blast', 'Armor Damage', 'Shield Damage', 50, 20, 50],
+						  ['BioticSlash', 'Biotic Slash', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Detonate', 'Recharge Speed', 'Damage', 'Range', 50, 50, 50],
+						  ['MPPassive', 'N7 Slayer', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 40, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Volus Protector Vanguard':
-			var powers = [['Biotic Charge', 30, 60, 20],		['Shield Boost', 60, 50, 40],			['Biotic Orbs', 50, 30, 30],			['Volus Training', 60, 50, 30],			['Fitness', 30, 50, 40]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 60, 30],
+						  ['ShieldBoost', 'Shield Boost', 'Recharge Speed', 'Shields', 'Impact Radius', 'Shields', 'Recharge Speed', 'Regeneration', 'Duration', 'Protection', 50, 50, 40],
+						  ['BioticOrbs', 'Biotic Orbs', 'Recharge Speed', 'Damage', 'Damage', 'Impact Radius', 'Damage', 'Recharge Speed', 'Expose', 'Orb Count', 50, 40, 40],
+						  ['MPPassive', 'Volus Training', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Shield Boost', 'Weapon Weight', 'Weapon Damage', 50, 50, 30],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 30, 50, 40]];
 			break;
 		case 'Batarian Brawler Vanguard':
-			var powers = [['Biotic Charge', 30, 60, 20],		['Lash', 20, 60, 30],					['Blade Armor', 30, 40, 50],			['Batarian Enforcer',  40, 70, 20],		['Fitness', 50, 70, 70]];
-			rerolls = [0, 6, 2];
+			var powers = [['BioticCharge', 'Biotic Charge', 'Recharge Speed', 'Force & Damage', 'Force & Damage', 'Radius', 'Weapon Synergy', 'Power Synergy', 'Bonus Power', 'Barrier', 30, 60, 30],
+						  ['Lash', 'Lash', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Recharge Speed', 'Damage Over Time', 'Fast Recharge', 'Shield Penetration', 30, 50, 30],
+						  ['BladeArmor', 'Blade Armor', 'Recharge Speed', 'Melee Damage', 'Durability', 'Melee Damage', 'Recharge Speed', 'Damage Returned', 'Power Recharge', 'Durability', 30, 40, 50],
+						  ['MPPassive', 'Batarian Enforcer', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Snipers & Shotguns', 'Damage & Ammo', 50, 60, 20],
+						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 50, 70, 60]];
 			break;
 		case 'Cabal Vanguard':
-			var powers = [['Poison Strike', 50, 60, 60],		['Nightshade Blades', 60, 50, 50],		['Biotic Focus', 50, 60, 80],			['Turian Veteran', 50, 60, 20],			['Venom Gauntlets', 40, 50, 40]];
+			var powers = [['PoisonStrike', 'Poison Strike', 'Recharge Speed', 'Damage', 'Damage', 'Range', 'Poison Duration', 'Recharge Speed', 'Poison Strength', 'Double Dash', 50, 50, 60],
+						  ['NightshadeBlades', 'Nightshade Blades', 'Capacity', 'Damage', 'Damage', 'Capacity', 'Range', 'Poison Duration', 'Enhanced Blades', 'Exploding Blades', 60, 50, 50],
+						  ['BioticFocus', 'Biotic Focus', 'Recharge Speed', 'Duration', 'Damage Taken', 'Movement Speed', 'Duration', 'Melee Damage', 'Biotic Shield', 'Heightened Focus', 60, 60, 70],
+						  ['MPPassive', 'Turian Veteran', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 50, 60, 20],
+						  ['MPFitness', 'Venom Gauntlets', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 40, 50, 40]];
 			break;
 	}
-	//var powerRanks = sessionStorage.getItem('powers').split('/');
+	
 	if (!rerollChar) {
 		var powerRanks, i;
 		do {
 			powerRanks = getPowerRanks();
-			if (rerolls.length > 0) {
-				for (i=0; i < rerolls[2] && powerRanks[rerolls[0]] < rerolls[1]; i++) powerRanks = getPowerRanks();
-			}
 		} while (powerRanks.join('/') === sessionStorage.getItem('powers'));
 		sessionStorage.setItem('powers', powerRanks.join('/'));
 	} else {
@@ -411,27 +598,47 @@ function rollPowers(rerollChar) {
 	}
 	
 	for (var i = 0; i < 5; i++) {
-		document.getElementById('power' + (i+1) + 'name').innerHTML = powers[i][0];
+		var elem = document.getElementById('power-' + i).children;
+		elem[0].children[0].innerHTML = powers[i][1];
+		var k = 1;
 		for (var j = 1; j < 7; j++) {
+			if (j<=3) {
+				elem[j].children[0].children[0].src = 'resources/powers/' + powers[i][0] + '.png';
+				elem[j].children[0].children[1].innerHTML = powers[i][k++];
+			} else {
+				elem[j].children[0].children[0].children[0].src = 'resources/powers/' + powers[i][0] + '.png';
+				elem[j].children[0].children[0].children[1].innerHTML = powers[i][k++];
+				elem[j].children[1].children[0].children[0].src = 'resources/powers/' + powers[i][0] + '.png';
+				elem[j].children[1].children[0].children[1].innerHTML = powers[i][k++];
+			}
+		}
+		for (j = 1; j < 7; j++) {
 			if (j <= powerRanks[i]) {
 				if (j<=3) {
-					document.getElementById('power' + (i+1) + 'rank' + j).src = 'resources/lk2.png';
+					elem[j].style = 'background-position: -128px 0;';
 				} else {
-					if (Math.floor(Math.random()*100) < powers[i][j-3]) {
-						document.getElementById('power' + (i+1) + 'rank' + j).src = 'resources/lk2_A.png';
+					if (Math.floor(Math.random()*100) < powers[i][j+6]) {
+						elem[j].children[0].style = 'background-position: -128px 0;';
+						elem[j].children[1].style = 'background-position: 0px 0;';
 					} else {
-						document.getElementById('power' + (i+1) + 'rank' + j).src = 'resources/lk2_B.png';
+						elem[j].children[0].style = 'background-position: 0px 0;';
+						elem[j].children[1].style = 'background-position: -128px 0;';
 					}
 				}
 			} else {
-				document.getElementById('power' + (i+1) + 'rank' + j).src = 'resources/lk1.png';
+				if (j<=3) {
+					elem[j].style = 'background-position: 0px 0;';
+				} else {
+					elem[j].children[0].style = 'background-position: 0px 0;';
+					elem[j].children[1].style = 'background-position: 0px 0;';
+				}
 			}
 		}
 	}
 }
 
 function reRollPowers() {
-	if (document.getElementById('power1name').innerHTML != "") rollPowers(false);
+	if (document.getElementById('power-0').children[0].children[0].innerHTML != "") rollPowers(false);
 }
 
 function rollWeaponCount() {
@@ -514,7 +721,7 @@ function getRandomWeapon(slot, race, weight) {
 	snipers.push([5, 'M-90 Indra', 'SniperRifle_Indra', 70, true, true, true, true]);
 	snipers.push([5, 'N7 Valiant', 'SniperRifle_Valiant', 100, true, true, true, false]);
 	if (sessionStorage.getItem('weaponCount') === '1') {
-		var sndWeight = 40;
+		var sndWeight = 70;
 		if (slot == 1) {
 			var sndWeaponType = sessionStorage.getItem('weaponType2');
 			if (sessionStorage.getItem('weight2') !== null) sndWeight = parseInt(sessionStorage.getItem('weight2'));
@@ -784,6 +991,7 @@ function rollRandomGear() {
 }
 
 function rollKit() {
+	disablePowers();
 	sessionStorage.removeItem('prevCharacterName');
 	if (sessionStorage.getItem('characterName') !== null) sessionStorage.setItem('prevCharacterName', sessionStorage.getItem('characterName'));
 	sessionStorage.removeItem('characterName');
@@ -818,14 +1026,8 @@ function rollKit() {
 	
 	rollCharacter();
 	if (document.getElementById('chkRandPowers').checked) {
+		document.getElementById('power-selector').style = 'style="display: inline-block;';
 		rollPowers(false);
-	} else {
-		for (var i=1; i<6; i++) {
-			document.getElementById('power' + i + 'name').innerHTML = '';
-			for (var j=1; j<7; j++) {
-				document.getElementById('power' + i + 'rank' + j).src = '';
-			}
-		}
 	}
 	// roll weapon
 	if (document.getElementById('chkRandWeapon').checked) {
@@ -940,6 +1142,14 @@ function storeRadio(id) {
 	}
 }
 
+function disablePowers() {
+	if (document.getElementById('chkRandPowers').checked) {
+		document.getElementsByClassName('initialNoShow3')[0].style = 'display: inline-block;';
+	} else {
+		document.getElementsByClassName('initialNoShow3')[0].style = 'display: none;';
+	}
+}
+
 function disableWeapon() {
 	var checked = document.getElementById('chkRandWeapon').checked;
 	if (checked) {opcty = "1";} else {opcty = "0.2";}
@@ -991,6 +1201,7 @@ function disableGear() {
 
 window.onload = function(){
 	localLoad();
+	disablePowers();
 	disableWeapon();
 	disableMods();
 	disableAmmo();
