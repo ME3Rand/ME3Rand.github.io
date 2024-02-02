@@ -1,0 +1,113 @@
+#power-selector {
+  background-color: #0C131C;
+  color: white;
+  font-family: Verdana, Arial, sans-serif;
+  font-size: 1.1em;
+  margin: 0;
+  min-width: 1000px;  /* Must be the same as the content width. */
+  padding: 0;
+  width: 100%;  /* Along with the min-width property, this fixes a zoomed window's width. */
+}
+
+.power-tree {
+  /*border-top: 1px solid #5C81A8;*/
+  padding: 0.5em 0.25em;
+  padding-left: 10px;
+  padding-right: 30px;
+  white-space: nowrap;
+  float: left;
+}
+
+.power-tree > .power-frame {
+  margin-left: 0.25em;
+  margin-top: 32px;
+}
+
+.power-label {
+  padding-left: 0.25em;
+  position: absolute;
+}
+
+.power-label > p,
+.power-label .ui-check-label {
+  font-size: 0.85em;  /* Hawk Missile Launcher */
+}
+
+.power-evo {
+  float: left;
+  height: 128px;
+  margin-left: 0.25em;
+  width: 64px;
+}
+
+.power-frame {
+  background: url('powerbg.png') no-repeat;
+  background-size: 192px 64px;
+  cursor: pointer;
+  float: left;
+  position: relative;
+}
+
+/* A seperate class is also used because JS cannot trigger a CSS hover. */
+/*
+.power-frame:hover,
+.power-required {
+  background-position: -64px 0;
+}
+*/
+
+/*
+.power-frame.power-active {
+  background-position: -128px 0;
+}
+*/
+
+.power-frame.power-disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+/*
+.power-frame.power-disabled:hover {
+  background-position: 0 0;
+  opacity: 1.0;
+}
+*/
+
+.power-icon {
+  /*background-size: 384px 128px;*/
+  height: 64px;
+  overflow: hidden;
+  width: 64px;
+}
+
+.power-icon > img {
+  height: 128px;
+  position: relative;
+  width: 384px;  /* Scale the image down 50%. */
+}
+.rank-1 > img  { left: 0; }
+.rank-2 > img  { left: -64px; }
+.rank-3 > img  { left: -128px; }
+.rank-4A > img { left: -192px; }
+.rank-4B > img { left: -192px; top: -64px; }
+.rank-5A > img { left: -256px; }
+.rank-5B > img { left: -256px; top: -64px; }
+.rank-6A > img { left: -320px; }
+.rank-6B > img { left: -320px; top: -64px; }
+
+.power-frame:hover .tooltip-text {
+  visibility: visible;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  border-radius: 3px;
+  color: white;
+  background-color: black;
+  padding: 5px;
+  top: -40px;
+  left: -35%;
+}
