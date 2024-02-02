@@ -594,7 +594,12 @@ function rollPowers(rerollChar) {
 		} while (powerRanks.join('/') === sessionStorage.getItem('powers'));
 		sessionStorage.setItem('powers', powerRanks.join('/'));
 	} else {
-		var powerRanks = sessionStorage.getItem('powers').split('/');
+		if (sessionStorage.getItem('powerswap') != null){
+			var i = sessionStorage.getItem('powerswap');
+			document.getElementById('power-' + i).children[4].children[0].style = 'background-position: 0px 0;';
+			document.getElementById('power-' + i).children[4].children[1].style = 'background-position: -128px 0;';
+			sessionStorage.removeItem('powerswap');
+		}
 	}
 	
 	for (var i = 0; i < 5; i++) {
@@ -612,32 +617,42 @@ function rollPowers(rerollChar) {
 				elem[j].children[1].children[0].children[1].innerHTML = powers[i][k++];
 			}
 		}
-		for (j = 1; j < 7; j++) {
-			if (j <= powerRanks[i]) {
-				if (j<=3) {
-					elem[j].style = 'background-position: -128px 0;';
+		
+		if (!rerollChar) {
+			for (j = 1; j < 7; j++) {
+				if (j <= powerRanks[i]) {
+					if (j<=3) {
+						elem[j].style = 'background-position: -128px 0;';
+					} else {
+						if (Math.floor(Math.random()*100) < powers[i][j+6]) {
+							elem[j].children[0].style = 'background-position: -128px 0;';
+							elem[j].children[1].style = 'background-position: 0px 0;';
+						} else {
+							elem[j].children[0].style = 'background-position: 0px 0;';
+							elem[j].children[1].style = 'background-position: -128px 0;';
+						}
+					}
 				} else {
-					if (Math.floor(Math.random()*100) < powers[i][j+6]) {
-						elem[j].children[0].style = 'background-position: -128px 0;';
-						elem[j].children[1].style = 'background-position: 0px 0;';
+					if (j<=3) {
+						elem[j].style = 'background-position: 0px 0;';
 					} else {
 						elem[j].children[0].style = 'background-position: 0px 0;';
-						elem[j].children[1].style = 'background-position: -128px 0;';
+						elem[j].children[1].style = 'background-position: 0px 0;';
 					}
 				}
-			} else {
-				if (j<=3) {
-					elem[j].style = 'background-position: 0px 0;';
-				} else {
-					elem[j].children[0].style = 'background-position: 0px 0;';
-					elem[j].children[1].style = 'background-position: 0px 0;';
-				}
+			}
+		} else {
+			if (powers[i][0] === 'Shockwave') {
+				elem[4].children[0].style = 'background-position: -128px 0;';
+				elem[4].children[1].style = 'background-position: 0px 0;';
+				sessionStorage.setItem('powerswap', i);
 			}
 		}
 	}
 }
 
 function reRollPowers() {
+	sessionStorage.removeItem('powerswap');
 	if (document.getElementById('power-0').children[0].children[0].innerHTML != "") rollPowers(false);
 }
 
@@ -651,27 +666,41 @@ function rollWeaponCount() {
 	sessionStorage.setItem('weaponCount', weaponCount);
 }
 
-function getRandomWeapon(slot, race, weight) {
+function getRandomWeapon(slot, weight) {
+	var limit = !document.getElementById('chkLimitWeight').checked;
+	if (sessionStorage.getItem('weaponCount') === '1') {
+		var sndWeight = 70;
+		if (slot == 1) {
+			var sndWeaponType = sessionStorage.getItem('weaponType2');
+			if (sessionStorage.getItem('weight2') !== null) sndWeight = parseInt(sessionStorage.getItem('weight2'));
+		} else {
+			var sndWeaponType = sessionStorage.getItem('weaponType1');
+			if (sessionStorage.getItem('weight1') !== null) sndWeight = parseInt(sessionStorage.getItem('weight1'));
+		}
+		weight -= sndWeight;
+	}
+	
 	// [weaponType, weaponName, weaponPng, weight, canPierce, accuracy/spare_ammo, canHeadshot, needsPiercing]
 	var assaultRifles = new Array();
 	assaultRifles.push([1, 'M-8 Avenger', 'AssaultRifle_Avenger', 50, true, true, true, true]);
 	assaultRifles.push([1, 'M-15 Vindicator', 'AssaultRifle_Vindicator', 70, true, true, true, true]);
-	assaultRifles.push([1, 'M-96 Mattock', 'AssaultRifle_Mattock', 90, true, true, true, true]);
-	assaultRifles.push([1, 'Phaeston', 'AssaultRifle_Phaeston', 80, true, true, true, true]);
-	assaultRifles.push([1, 'Adas Anti-Synthetic Rifle', 'AssaultRifle_Adas', 140, false, false, true, false]);
-	assaultRifles.push([1, 'Collector Rifle', 'AssaultRifle_Collector', 120, true, true, true, true]);
+	if (limit || weight >= 90) assaultRifles.push([1, 'M-96 Mattock', 'AssaultRifle_Mattock', 90, true, true, true, true]);
+	if (limit || weight >= 80) assaultRifles.push([1, 'Phaeston', 'AssaultRifle_Phaeston', 80, true, true, true, true]);
+	if (limit || weight >= 140) assaultRifles.push([1, 'Adas Anti-Synthetic Rifle', 'AssaultRifle_Adas', 140, false, false, true, false]);
+	if (limit || weight >= 120) assaultRifles.push([1, 'Collector Rifle', 'AssaultRifle_Collector', 120, true, true, true, true]);
 	assaultRifles.push([1, 'Geth Pulse Rifle', 'AssaultRifle_Geth', 50, true, true, true, true]);
-	assaultRifles.push([1, 'M-37 Falcon', 'AssaultRifle_Falcon', 100, false, false, false, false]);
-	assaultRifles.push([1, 'M-55 Argus', 'AssaultRifle_Argus', 140, true, true, true, false]);
-	assaultRifles.push([1, 'M-76 Revenant', 'AssaultRifle_Revenant', 125, true, true, true, true]);
-	assaultRifles.push([1, 'Striker Assault Rifle', 'AssaultRifle_Striker', 140, false, true, false, false]);
-	assaultRifles.push([1, 'Cerberus Harrier', 'AssaultRifle_Cerberus', 125, true, true, true, true]);
-	assaultRifles.push([1, 'Geth Spitfire', 'AssaultRifle_Spitfire', 250, true, true, true, true]);
-	if (race != 'Drell') assaultRifles.push([1, 'M-7 Lancer', 'AssaultRifle_Lancer', 80, true, true, true, true]);
-	assaultRifles.push([1, 'M-99 Saber', 'AssaultRifle_Saber', 140, true, true, true, false]);
-	assaultRifles.push([1, 'N7 Typhoon', 'AssaultRifle_Typhoon', 200, true, true, true, true]);
-	assaultRifles.push([1, 'N7 Valkyrie', 'AssaultRifle_Valkyrie', 125, true, true, true, true]);
-	if (race != 'Drell') assaultRifles.push([1, 'Particle Rifle', 'AssaultRifle_ParticleRifle', 140, true, true, true, true]);
+	if (limit || weight >= 100) assaultRifles.push([1, 'M-37 Falcon', 'AssaultRifle_Falcon', 100, false, false, false, false]);
+	if (limit || weight >= 140) assaultRifles.push([1, 'M-55 Argus', 'AssaultRifle_Argus', 140, true, true, true, false]);
+	if (limit || weight >= 125) assaultRifles.push([1, 'M-76 Revenant', 'AssaultRifle_Revenant', 125, true, true, true, true]);
+	if (limit || weight >= 140) assaultRifles.push([1, 'Striker Assault Rifle', 'AssaultRifle_Striker', 140, false, true, false, false]);
+	if (limit || weight >= 125) assaultRifles.push([1, 'Cerberus Harrier', 'AssaultRifle_Cerberus', 125, true, true, true, true]);
+	if (limit || weight >= 250) assaultRifles.push([1, 'Geth Spitfire', 'AssaultRifle_Spitfire', 250, true, true, true, true]);
+	if (limit || weight >= 80) assaultRifles.push([1, 'M-7 Lancer', 'AssaultRifle_Lancer', 80, true, true, true, true]);
+	if (limit || weight >= 140) assaultRifles.push([1, 'M-99 Saber', 'AssaultRifle_Saber', 140, true, true, true, false]);
+	if (limit || weight >= 200) assaultRifles.push([1, 'N7 Typhoon', 'AssaultRifle_Typhoon', 200, true, true, true, true]);
+	if (limit || weight >= 125) assaultRifles.push([1, 'N7 Valkyrie', 'AssaultRifle_Valkyrie', 125, true, true, true, true]);
+	if (limit || weight >= 140) assaultRifles.push([1, 'Particle Rifle', 'AssaultRifle_ParticleRifle', 140, true, true, true, true]);
+	
 	var pistols = new Array();
 	pistols.push([2, 'M-3 Predator', 'Pistol_Predator', 20, true, true, true, true]);
 	pistols.push([2, 'M-5 Phalanx', 'Pistol_Phalanx', 25, true, true, true, true]);
@@ -684,20 +713,22 @@ function getRandomWeapon(slot, race, weight) {
 	pistols.push([2, 'M-358 Talon', 'Pistol_Talon', 60, true, true, true, true]);
 	pistols.push([2, 'N7 Eagle', 'Pistol_Eagle', 25, true, true, true, true]);
 	pistols.push([2, 'Scorpion', 'Pistol_Scorpion', 60, false, true, false, false]);
+	
 	var shotguns = new Array();
-	shotguns.push([3, 'M-23 Katana', 'Shotgun_Katana', 90, true, true, true, true]);
+	if (limit || weight >= 90) shotguns.push([3, 'M-23 Katana', 'Shotgun_Katana', 90, true, true, true, true]);
 	shotguns.push([3, 'M-22 Eviscerator', 'Shotgun_Eviscerator', 70, true, true, true, true]);
 	shotguns.push([3, 'M-27 Scimitar', 'Shotgun_Scimitar', 60, true, true, true, true]);
-	shotguns.push([3, 'AT-12 Raider', 'Shotgun_Raider', 140, true, true, true, true]);
+	if (limit || weight >= 140) shotguns.push([3, 'AT-12 Raider', 'Shotgun_Raider', 140, true, true, true, true]);
 	shotguns.push([3, 'Disciple', 'Shotgun_Disciple', 50, true, true, true, true]);
-	shotguns.push([3, 'Geth Plasma Shotgun', 'Shotgun_Geth', 140, false, false, false, false]);
-	shotguns.push([3, 'Graal Spike Thrower', 'Shotgun_Graal', 140, false, true, true, false]);
-	shotguns.push([3, 'M-300 Claymore', 'Shotgun_Claymore', 200, true, true, true, false]);
-	shotguns.push([3, 'N7 Piranha', 'Shotgun_Piranha', 90, true, true, true, true]);
-	shotguns.push([3, 'Reeger Carbine', 'Shotgun_Reeger', 125, true, false, true, true]);
-	shotguns.push([3, 'M-11 Wraith', 'Shotgun_Wraith', 90, true, true, true, true]);
-	shotguns.push([3, 'N7 Crusader', 'Shotgun_Crusader', 200, true, false, true, false]);
-	shotguns.push([3, 'Venom Shotgun', 'Shotgun_Venom', 140, false, false, false, false]);
+	if (limit || weight >= 140) shotguns.push([3, 'Geth Plasma Shotgun', 'Shotgun_Geth', 140, false, false, false, false]);
+	if (limit || weight >= 140) shotguns.push([3, 'Graal Spike Thrower', 'Shotgun_Graal', 140, false, true, true, false]);
+	if (limit || weight >= 200) shotguns.push([3, 'M-300 Claymore', 'Shotgun_Claymore', 200, true, true, true, false]);
+	if (limit || weight >= 90) shotguns.push([3, 'N7 Piranha', 'Shotgun_Piranha', 90, true, true, true, true]);
+	if (limit || weight >= 125) shotguns.push([3, 'Reeger Carbine', 'Shotgun_Reeger', 125, true, false, true, true]);
+	if (limit || weight >= 90) shotguns.push([3, 'M-11 Wraith', 'Shotgun_Wraith', 90, true, true, true, true]);
+	if (limit || weight >= 200) shotguns.push([3, 'N7 Crusader', 'Shotgun_Crusader', 200, true, false, true, false]);
+	if (limit || weight >= 140) shotguns.push([3, 'Venom Shotgun', 'Shotgun_Venom', 140, false, false, false, false]);
+	
 	var smgs = new Array();
 	smgs.push([4, 'M-4 Shuriken', 'SMG_Shuriken', 20, true, true, true, true]);
 	smgs.push([4, 'M-9 Tempest', 'SMG_Tempest', 30, true, true, true, true]);
@@ -707,51 +738,28 @@ function getRandomWeapon(slot, race, weight) {
 	smgs.push([4, 'Blood Pack Punisher', 'SMG_Bloodpack', 45, true, true, true, true]);
 	smgs.push([4, 'Collector SMG', 'SMG_Collector', 45, true, false, true, true]);
 	smgs.push([4, 'N7 Hurricane', 'SMG_Hurricane', 45, true, true, true, true]);
+	
 	var snipers = new Array();
-	snipers.push([5, 'M-92 Mantis', 'SniperRifle_Mantis', 100, true, true, true, false]);
+	if (limit || weight >= 100) snipers.push([5, 'M-92 Mantis', 'SniperRifle_Mantis', 100, true, true, true, false]);
 	snipers.push([5, 'M-13 Raptor', 'SniperRifle_Raptor', 70, true, true, true, true]);
-	snipers.push([5, 'M-29 Incisor', 'SniperRifle_Incisor', 90, true, true, true, true]);
+	if (limit || weight >= 90) snipers.push([5, 'M-29 Incisor', 'SniperRifle_Incisor', 90, true, true, true, true]);
 	snipers.push([5, 'M-97 Viper', 'SniperRifle_Viper', 70, true, true, true, false]);
-	if (race != 'Drell') snipers.push([5, 'Collector Sniper Rifle', 'SniperRifle_Collector', 140, true, false, true, true]);
-	snipers.push([5, 'Kishock Harpoon Gun', 'SniperRifle_Kishock', 140, false, true, true, false]);
-	snipers.push([5, 'Krysae Sniper Rifle', 'SniperRifle_Krysae', 140, false, true, false, false]);
-	snipers.push([5, 'M-98 Widow', 'SniperRifle_Widow', 200, true, true, true, false]);
-	snipers.push([5, 'Black Widow', 'SniperRifle_BlackWidow', 200, true, true, true, false]);
-	snipers.push([5, 'Javelin', 'SniperRifle_Javelin', 240, true, true, true, false]);
+	if (limit || weight >= 140) snipers.push([5, 'Collector Sniper Rifle', 'SniperRifle_Collector', 140, true, false, true, true]);
+	if (limit || weight >= 140) snipers.push([5, 'Kishock Harpoon Gun', 'SniperRifle_Kishock', 140, false, true, true, false]);
+	if (limit || weight >= 140) snipers.push([5, 'Krysae Sniper Rifle', 'SniperRifle_Krysae', 140, false, true, false, false]);
+	if (limit || weight >= 200) snipers.push([5, 'M-98 Widow', 'SniperRifle_Widow', 200, true, true, true, false]);
+	if (limit || weight >= 200) snipers.push([5, 'Black Widow', 'SniperRifle_BlackWidow', 200, true, true, true, false]);
+	if (limit || weight >= 240) snipers.push([5, 'Javelin', 'SniperRifle_Javelin', 240, true, true, true, false]);
 	snipers.push([5, 'M-90 Indra', 'SniperRifle_Indra', 70, true, true, true, true]);
-	snipers.push([5, 'N7 Valiant', 'SniperRifle_Valiant', 100, true, true, true, false]);
-	if (sessionStorage.getItem('weaponCount') === '1') {
-		var sndWeight = 70;
-		if (slot == 1) {
-			var sndWeaponType = sessionStorage.getItem('weaponType2');
-			if (sessionStorage.getItem('weight2') !== null) sndWeight = parseInt(sessionStorage.getItem('weight2'));
-		} else {
-			var sndWeaponType = sessionStorage.getItem('weaponType1');
-			if (sessionStorage.getItem('weight1') !== null) sndWeight = parseInt(sessionStorage.getItem('weight1'));
-		}
-	}
+	if (limit || weight >= 100) snipers.push([5, 'N7 Valiant', 'SniperRifle_Valiant', 100, true, true, true, false]);
+	
 	var weaponList = new Array();
 	if (sndWeaponType !== '1') weaponList.push(assaultRifles);
 	if (sndWeaponType !== '2') weaponList.push(pistols);
 	if (sndWeaponType !== '3') weaponList.push(shotguns);
 	if (sndWeaponType !== '4') weaponList.push(smgs);
 	if (sndWeaponType !== '5') weaponList.push(snipers);
-	// check weight
-		if (document.getElementById('chkLimitWeight').checked) {
-			if (sessionStorage.getItem('weaponCount') === '1') weight -= sndWeight;
-			for (var i=0; i < weaponList.length; i++) {
-				for (var j=0; j < weaponList[i].length; j++) {
-					if (weaponList[i][j][3] > weight) {
-						weaponList[i].splice(j, 1);
-						j--;
-					}
-				}
-				if (weaponList[i].length == 0) {
-					weaponList.splice(i, 1);
-					i--;
-				}
-			}
-		}
+	
 	do {
 		// roll weapon
 			var randomIndex = Math.floor(Math.random() * weaponList.length);
@@ -768,7 +776,7 @@ function getRandomWeapon(slot, race, weight) {
 }
 
 function rollWeapon(slot) {
-	var weapon = getRandomWeapon(slot, sessionStorage.getItem('characterName').replace(/\s.*/i, ''), parseInt(sessionStorage.getItem('weightLimit')));
+	var weapon = getRandomWeapon(slot, parseInt(sessionStorage.getItem('weightLimit')));
 	sessionStorage.setItem('weaponType' + slot, weapon[0]);
 	sessionStorage.setItem('weaponName' + slot, weapon[1]);
 	sessionStorage.setItem('weight' + slot, weapon[3]);
@@ -1023,6 +1031,7 @@ function rollKit() {
 	sessionStorage.removeItem('armor');
 	sessionStorage.removeItem('weaponBonus');
 	sessionStorage.removeItem('gear');
+	sessionStorage.removeItem('powerswap');
 	
 	rollCharacter();
 	if (document.getElementById('chkRandPowers').checked) {
