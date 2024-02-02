@@ -6,61 +6,61 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link rel="icon" href="resources/icon.jpg" type="image/icon type">
 		<link rel="stylesheet" href="resources/style.css">
+		<link rel="stylesheet" href="resources/powerstyle.css">
 	</head
 	<body>
-		<div class="randomized" id="divOptions" style="min-width: 789px;">
-			<center>
-				<font size="24">
-					<p id="pOptions">
-						<u>OPTIONS</u>
-					</p>
-				</font>
-			</center>
-			<br>
-			<div class="options" style="display: inline-block;">
+		<div class="center">
+			<div class="options-box" id="divOptions">
+				<center>
+					<font size="24">
+						<p id="pOptions">
+							<u>OPTIONS</u>
+						</p>
+					</font>
+				</center>
 				<br>
-				<input type="checkbox" id="chkTalonEngineer" onclick="storeChkbox(this.id)"><label for="chkTalonEngineer">exclude Talon Mercenary</label><br>
-				<input type="checkbox" id="chkRandWeapon" onclick="storeChkbox(this.id);disableWeapon()" checked><label for="chkRandWeapon">randomize Weapons</label>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkTalonEngineer" onclick="storeChkbox(this.id)"><label for="chkTalonEngineer">exclude Talon Mercenary</label><br>
+					<input type="checkbox" id="chkRandWeapon" onclick="storeChkbox(this.id);disableWeapon()" checked><label for="chkRandWeapon">randomize Weapons</label>
+					<br><br>
+					<input type="checkbox" id="chkRandPowers" onclick="storeChkbox(this.id)"><label for="chkRandPowers">randomize Powers</label>
+				</div>
+				<div class="options">
+					<p>Weapon Count:</p>
+					<input type="radio" id="chkWeaponCountAny" name="weaponCount" onclick="storeRadio(this.id)" checked><label id="lblWeaponCountAny" for="chkWeaponCountAny">any</label><br>
+					<input type="radio" id="chkWeaponCountOne" name="weaponCount" onclick="storeRadio(this.id)"><label id="lblWeaponCountOne" for="chkWeaponCountOne">1</label><br>
+					<input type="radio" id="chkWeaponCountTwo" name="weaponCount" onclick="storeRadio(this.id)"><label id="lblWeaponCountTwo" for="chkWeaponCountTwo">2</label>
+				</div>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkLimitWeight" onclick="storeChkbox(this.id)" checked><label id="lblLimitWeight" for="chkLimitWeight">limit weight</label><br>
+					<input type="checkbox" id="chkRandMods" onclick="storeChkbox(this.id);disableMods()" checked><label id="lblRandMods" for="chkRandMods">randomize Mods</label><br>
+					<input type="checkbox" id="chkUselessMods" onclick="storeChkbox(this.id)" checked><label id="lblUselessMods" for="chkUselessMods">no useless Mods</label>
+				</div>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkRandAmmo" onclick="storeChkbox(this.id);disableAmmo()" checked><label for="chkRandAmmo">randomize Ammo Bonus</label><br>
+					<br>
+					<input type="checkbox" id="chkRandArmor" onclick="storeChkbox(this.id)" checked><label for="chkRandArmor">randomize Armor Bonus</label><br>
+					<input type="checkbox" id="chkRandWeaponBonus" onclick="storeChkbox(this.id);disableWeaponBonus()" checked><label for="chkRandWeaponBonus">randomize Weapon Bonus</label><br>
+					<input type="checkbox" id="chkRandGear" onclick="storeChkbox(this.id);disableGear()" checked><label for="chkRandGear">randomize Gear Bonus</label>
+				</div>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkUselessAmmo" onclick="storeChkbox(this.id)" checked><label id="lblUselessAmmo" for="chkUselessAmmo">no useless Ammo Bonus</label><br>
+					<input type="checkbox" id="chkExplosive" onclick="storeChkbox(this.id)"><label id="lblExplosive" for="chkExplosive">no Explosive Rounds</label><br>
+					<br>
+					<input type="checkbox" id="chkUselessWeaponBonus" onclick="storeChkbox(this.id)" checked><label id="lblUselessWeaponBonus" for="chkUselessWeaponBonus">no useless Weapon Bonus</label><br>
+					<input type="checkbox" id="chkUselessGear" onclick="storeChkbox(this.id)" checked><label id="lblUselessGear" for="chkUselessGear">no useless Gear Bonus</label>
+				</div>
 				<br><br>
-				<input type="checkbox" id="chkRandPowers" onclick="storeChkbox(this.id)"><label for="chkRandPowers">randomize Powers</label>
+				<p align="center"><button type="button" onclick="rollKit()">randomize</button></p>
+				<center>NOTE: To reroll a specific item, click on the picture.</center>
 			</div>
-			<div class="options"  style="display: inline-block;">
-				<p>Weapon Count:</p>
-				<input type="radio" id="chkWeaponCountAny" name="weaponCount" onclick="storeRadio(this.id)" checked><label id="lblWeaponCountAny" for="chkWeaponCountAny">any</label><br>
-				<input type="radio" id="chkWeaponCountOne" name="weaponCount" onclick="storeRadio(this.id)"><label id="lblWeaponCountOne" for="chkWeaponCountOne">1</label><br>
-				<input type="radio" id="chkWeaponCountTwo" name="weaponCount" onclick="storeRadio(this.id)"><label id="lblWeaponCountTwo" for="chkWeaponCountTwo">2</label>
-			</div>
-			<div class="options"  style="display: inline-block;">
-				<br>
-				<input type="checkbox" id="chkLimitWeight" onclick="storeChkbox(this.id)" checked><label id="lblLimitWeight" for="chkLimitWeight">limit weight</label><br>
-				<input type="checkbox" id="chkRandMods" onclick="storeChkbox(this.id);disableMods()" checked><label id="lblRandMods" for="chkRandMods">randomize Mods</label><br>
-				<input type="checkbox" id="chkUselessMods" onclick="storeChkbox(this.id)" checked><label id="lblUselessMods" for="chkUselessMods">no useless Mods</label>
-			</div>
-			<div class="options"  style="display: inline-block;">
-				<br>
-				<input type="checkbox" id="chkRandAmmo" onclick="storeChkbox(this.id);disableAmmo()" checked><label for="chkRandAmmo">randomize Ammo Bonus</label><br>
-				<br>
-				<input type="checkbox" id="chkRandArmor" onclick="storeChkbox(this.id)" checked><label for="chkRandArmor">randomize Armor Bonus</label><br>
-				<input type="checkbox" id="chkRandWeaponBonus" onclick="storeChkbox(this.id);disableWeaponBonus()" checked><label for="chkRandWeaponBonus">randomize Weapon Bonus</label><br>
-				<input type="checkbox" id="chkRandGear" onclick="storeChkbox(this.id);disableGear()" checked><label for="chkRandGear">randomize Gear Bonus</label>
-			</div>
-			<div class="options"  style="display: inline-block;">
-				<br>
-				<input type="checkbox" id="chkUselessAmmo" onclick="storeChkbox(this.id)" checked><label id="lblUselessAmmo" for="chkUselessAmmo">no useless Ammo Bonus</label><br>
-				<input type="checkbox" id="chkExplosive" onclick="storeChkbox(this.id)"><label id="lblExplosive" for="chkExplosive">no Explosive Rounds</label><br>
-				<br>
-				<input type="checkbox" id="chkUselessWeaponBonus" onclick="storeChkbox(this.id)" checked><label id="lblUselessWeaponBonus" for="chkUselessWeaponBonus">no useless Weapon Bonus</label><br>
-				<input type="checkbox" id="chkUselessGear" onclick="storeChkbox(this.id)" checked><label id="lblUselessGear" for="chkUselessGear">no useless Gear Bonus</label>
-			</div>
-			<br><br>
-			<p align="center"><button type="button" onclick="rollKit()">randomize</button></p>
-			<center>NOTE: To reroll a specific item, click on the picture.</center>
-		</div>
-		<b>
-		<div class="container" style="min-width: 961px;">
-			<div>
+			<b>
 				<div class="initialNoShow" style="display: inline-block;">
-					<div class="character">
+					<div class="character-box">
 						<center>
 							<div>
 								<font size="4"><p id="characteroutput"></p></font><br><img id="characterPic" src="" onclick="reRollCharacter()">
@@ -69,7 +69,7 @@
 					</div>
 				</div>
 				<div class="initialNoShow" style="display: inline-block;">
-					<div class="character">
+					<div class="character-box">
 						<center><font size="4"><p id="weaponoutput1"></p></font><br><br><img id="weaponPic1" src="" onclick="reRollWeapon(1)"></center><br><br><br>
 						<table width="100%">
 							<tbody>
@@ -90,7 +90,7 @@
 					</div>
 				</div>
 				<div class="initialNoShow" style="display: inline-block;">
-					<div class="character">
+					<div class="character-box">
 						<center><font size="4"><p id="weaponoutput2"></p></font><br><br><img id="weaponPic2" src="" onclick="reRollWeapon(2)"></center><br><br><br> 
 						<table width="100%">
 							<tbody>
@@ -110,124 +110,371 @@
 						</table>
 					</div>
 				</div>
-			</div>
-			<div class="initialNoShow3" style="display: inline-block;">
-				<div class="character3" onclick="reRollPowers()">
-				<div class="pow">
-					<div class="powers">
-						<div class="powername">
-							<center><font size="3">
-								<p id="power1name"></p>
-							</font></center>
+				<div class="initialNoShow2" style="display: inline-block;">
+					<div class="gear-box">
+						<div class="gear">
+							<center>
+								<font size="4"><p id="ammoOutput1"></p></font><br>
+								<img class="mod" id="ammoPic" src="" onclick="rollRandomAmmo()">
+								<font size="3" color="#909091"><p id="ammoOutput2"></p></font>
+							</center>
 						</div>
-						<div class="powerranks">
-							<img id="power1rank1" src="">
-							<img id="power1rank2" src="">
-							<img id="power1rank3" src="">
-							<img id="power1rank4" src="">
-							<img id="power1rank5" src="">
-							<img id="power1rank6" src="">
+						<div class="gear">
+							<center>
+								<font size="4"><p id="weaponBonusOutput1"></p></font><br>
+								<img class="mod" id="weaponBonusPic" src="" onclick="rollRandomWeaponBonus()">
+								<font size="3" color="#909091"><p id="weaponBonusOutput2"></p></font>
+							</center>
 						</div>
-					</div>
-					<div class="powers">
-						<div class="powername">
-							<center><font size="3">
-								<p id="power4name"></p>
-							</font></center>
+						<div class="gear">
+							<center>
+								<font size="4"><p id="armorOutput1"></p></font><br>
+								<img class="mod" id="armorPic" src="" onclick="rollRandomArmor()">
+								<font size="3" color="#909091"><p id="armorOutput2"></p></font>
+							</center>
 						</div>
-						<div class="powerranks">
-							<img id="power4rank1" src="">
-							<img id="power4rank2" src="">
-							<img id="power4rank3" src="">
-							<img id="power4rank4" src="">
-							<img id="power4rank5" src="">
-							<img id="power4rank6" src="">
-						</div>
-					</div>
-					<div class="powers">
-						<div class="powername">
-							<center><font size="3">
-								<p id="power2name"></p>
-							</font></center>
-						</div>
-						<div class="powerranks">
-							<img id="power2rank1" src="" >
-							<img id="power2rank2" src="">
-							<img id="power2rank3" src="">
-							<img id="power2rank4" src="">
-							<img id="power2rank5" src="">
-							<img id="power2rank6" src="">
-						</div>
-					</div>
-					<div class="powers">
-						<div class="powername">
-							<center><font size="3">
-								<p id="power5name"></p>
-							</font></center>
-						</div>
-						<div class="powerranks">
-							<img id="power5rank1" src="">
-							<img id="power5rank2" src="">
-							<img id="power5rank3" src="">
-							<img id="power5rank4" src="">
-							<img id="power5rank5" src="">
-							<img id="power5rank6" src="">
-						</div>
-					</div>
-					<div class="powers">
-						<div class="powername">
-							<center><font size="3">
-								<p id="power3name"></p>
-							</font></center>
-						</div>
-						<div class="powerranks">
-							<img id="power3rank1" src="">
-							<img id="power3rank2" src="">
-							<img id="power3rank3" src="">
-							<img id="power3rank4" src="">
-							<img id="power3rank5" src="">
-							<img id="power3rank6" src="">
+						<div class="gear">
+							<center>
+								<font size="4"><p id="GearOutput1"></p></font><br>
+								<img class="mod" id="gearPic" src="" onclick="rollRandomGear()">
+								<font size="3" color="#909091"><p id="GearOutput2"></p></font>
+							</center>
 						</div>
 					</div>
 				</div>
+				<div class="initialNoShow3" style="display: inline-block;">
+					<div class="power-box" onclick="reRollPowers()">
+						<div id="power-selector" style="display: none;">
+							<div id="power-0" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-1" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-2" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-3" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="resources/powers/MPPassive.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="resources/powers/MPPassive.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="resources/powers/MPPassive.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-4" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="resources/powers/MPFitness.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="resources/powers/MPFitness.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="resources/powers/MPFitness.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
+			</b>
 		</div>
-		<div class="container">
-			<div class="initialNoShow2" style="display: inline-block;">
-				<div class="character2">
-					<div class="gear">
-						<center>
-							<font size="4"><p id="ammoOutput1"></p></font><br>
-							<img class="mod" id="ammoPic" src="" onclick="rollRandomAmmo()">
-							<font size="3" color="#909091"><p id="ammoOutput2"></p></font>
-						</center>
-					</div>
-					<div class="gear">
-						<center>
-							<font size="4"><p id="weaponBonusOutput1"></p></font><br>
-							<img class="mod" id="weaponBonusPic" src="" onclick="rollRandomWeaponBonus()">
-							<font size="3" color="#909091"><p id="weaponBonusOutput2"></p></font>
-						</center>
-					</div>
-					<div class="gear">
-						<center>
-							<font size="4"><p id="armorOutput1"></p></font><br>
-							<img class="mod" id="armorPic" src="" onclick="rollRandomArmor()">
-							<font size="3" color="#909091"><p id="armorOutput2"></p></font>
-						</center>
-					</div>
-					<div class="gear">
-						<center>
-							<font size="4"><p id="GearOutput1"></p></font><br>
-							<img class="mod" id="gearPic" src="" onclick="rollRandomGear()">
-							<font size="3" color="#909091"><p id="GearOutput2"></p></font>
-						</center>
-					</div>
-				</div>
-			</div>
-		</div>
-		</b>
 	</body>
 	<script src="resources/main.js"></script>
 </html> 
