@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ME3 Character Randomizer</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="resources/icon.jpg" type="image/icon type">
+		<link rel="stylesheet" href="resources/style.css">
+		<link rel="stylesheet" href="resources/powerstyle.css">
+	</head>
+	<body>
+		<div class="center">
+			<div class="options-box" id="divOptions">
+				<center>
+					<font size="24">
+						<p id="pOptions">
+							<u>OPTIONS</u>
+						</p>
+					</font>
+				</center>
+				<br>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkRandWeapon" onclick="storeChkbox(this.id);disableWeapon()" checked><label for="chkRandWeapon">randomize Weapons</label><br>
+					<input type="checkbox" id="chkRandPowers" onclick="storeChkbox(this.id)"><label for="chkRandPowers">randomize Powers</label><br>
+					<input type="checkbox" id="chkLockoutChar" onclick="storeChkbox(this.id);disableElimRand()"><label for="chkLockoutChar">Character lockout mode</label><br>
+					<input type="checkbox" id="chkLockoutWeap" onclick="storeChkbox(this.id);disableElimRand()"><label for="chkLockoutWeap">Weapon lockout mode</label><br>
+					<br>
+					<button id="buttChar" type="button" value="1" style="min-width:125px;" onclick="disableCharSelector()">manage Characters</button>
+				</div>
+				<div class="options">
+					<p>Weapon Count:</p>
+					<input type="radio" id="chkWeaponCountAny" name="weaponCount" onclick="storeRadio(this)" checked><label id="lblWeaponCountAny" for="chkWeaponCountAny">any</label><br>
+					<input type="radio" id="chkWeaponCountOne" name="weaponCount" onclick="storeRadio(this)"><label id="lblWeaponCountOne" for="chkWeaponCountOne">1</label><br>
+					<input type="radio" id="chkWeaponCountTwo" name="weaponCount" onclick="storeRadio(this)"><label id="lblWeaponCountTwo" for="chkWeaponCountTwo">2</label><br>
+					<br>
+					<br>
+					<button id="buttWeapon" type="button" value="1" style="min-width:125px;margin-top:9px;" onclick="disableWeaponSelector()">manage Weapons</button>
+				</div>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkLimitWeight" onclick="storeChkbox(this.id)" checked><label id="lblLimitWeight" for="chkLimitWeight">limit weight</label><br>
+					<input type="checkbox" id="chkRandMods" onclick="storeChkbox(this.id);disableMods()" checked><label id="lblRandMods" for="chkRandMods">randomize Mods</label><br>
+					<input type="checkbox" id="chkUselessMods" onclick="storeChkbox(this.id)" checked><label id="lblUselessMods" for="chkUselessMods">no useless Mods</label>
+				</div>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkRandAmmo" onclick="storeChkbox(this.id);disableAmmo()" checked><label for="chkRandAmmo">randomize Ammo Bonus</label><br>
+					<br>
+					<input type="checkbox" id="chkRandArmor" onclick="storeChkbox(this.id)" checked><label for="chkRandArmor">randomize Armor Bonus</label><br>
+					<input type="checkbox" id="chkRandWeaponBonus" onclick="storeChkbox(this.id);disableWeaponBonus()" checked><label for="chkRandWeaponBonus">randomize Weapon Bonus</label><br>
+					<input type="checkbox" id="chkRandGear" onclick="storeChkbox(this.id);disableGear()" checked><label for="chkRandGear">randomize Gear Bonus</label>
+				</div>
+				<div class="options">
+					<br>
+					<input type="checkbox" id="chkUselessAmmo" onclick="storeChkbox(this.id)" checked><label id="lblUselessAmmo" for="chkUselessAmmo">no useless Ammo Bonus</label><br>
+					<input type="checkbox" id="chkExplosive" onclick="storeChkbox(this.id)"><label id="lblExplosive" for="chkExplosive">no Explosive Rounds</label><br>
+					<br>
+					<input type="checkbox" id="chkUselessWeaponBonus" onclick="storeChkbox(this.id)" checked><label id="lblUselessWeaponBonus" for="chkUselessWeaponBonus">no useless Weapon Bonus</label><br>
+					<input type="checkbox" id="chkUselessGear" onclick="storeChkbox(this.id)" checked><label id="lblUselessGear" for="chkUselessGear">no useless Gear Bonus</label>
+				</div>
+				<br>
+				<br>
+				<div class="div-Selector" id="divCharacterSelector" style="display:none;">
+					<center>
+						<button type="button" onclick="resetDefault(1)" style="margin-right: 50px">set to Default</button>
+						<button type="button" onclick="deactivateAll(1)" style="margin-right: 50px">deactivate all</button>
+						<button type="button" onclick="resetEliminated(1)">reset Eliminated</button>
+					</center>
+					<div class="class-name">
+						<font size="2"><p style="margin-top: 40px;">A<br>D<br>E<br>P<br>T</p></font>
+					</div>
+					<div class="character-selector" id="humanAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Human</p>
+							<img src="resources/Characters/HumanAdeptSentinel.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="asariAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Asari</p>
+							<img src="resources/Characters/Asari.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="drellAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Drell</p>
+							<img src="resources/Characters/Drell.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="asariJusticarAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Asari Justicar</p>
+							<img src="resources/Characters/AsariJusticar.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="phoenixAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Phoenix Project</p>
+							<img src="resources/Characters/Phoenix.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="n7Adept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Fury</p>
+							<img src="resources/Characters/N7Fury.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="volusAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Volus</p>
+							<img src="resources/Characters/VolusAdept.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="kroganAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Krogan Shaman</p>
+							<img src="resources/Characters/KroganShaman.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="batarianAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Batarian Slasher</p>
+							<img src="resources/Characters/BatarianSlasher.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="collectorAdept" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Awakened Collector</p>
+							<img src="resources/Characters/Collector.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="class-name">
+						<font size="2"><p style="margin-top: 40px;">S<br>O<br>L<br>D<br>I<br>E<br>R</p></font>
+					</div>
+					<div class="character-selector" id="humanSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Human</p>
+							<img src="resources/Characters/HumanSoldierVanguard.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="kroganSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Krogan</p>
+							<img src="resources/Characters/Krogan.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="turianSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Turian</p>
+							<img src="resources/Characters/Turian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="bf3Soldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Battlefield 3</p>
+							<img src="resources/Characters/BF3.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="batarianSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Batarian</p>
+							<img src="resources/Characters/Batarian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="vorchaSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Vorcha</p>
+							<img src="resources/Characters/Vorcha.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="n7Soldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Destroyer</p>
+							<img src="resources/Characters/N7Destroyer.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="turianHavocSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Turian Havoc</p>
+							<img src="resources/Characters/TurianHavoc.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="gethTrooperSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Geth Trooper</p>
+							<img src="resources/Characters/GethTrooper.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="quarianSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Quarian Marksman</p>
+							<img src="resources/Characters/QuarianMarksman.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="gethJuggernautSoldier" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Geth Juggernaut</p>
+							<img src="resources/Characters/GethJuggernaut.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="class-name">
+						<font size="2"><p style="margin-top: 26px;">E<br>N<br>G<br>I<br>N<br>E<br>E<br>R</p></font>
+					</div>
+					<div class="character-selector" id="humanEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Human</p>
+							<img src="resources/Characters/HumanEngineerInfiltrator.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="quarianFEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Quarian Female</p>
+							<img src="resources/Characters/Quarian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="salarianEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Salarian</p>
+							<img src="resources/Characters/Salarian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="gethEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Geth</p>
+							<img src="resources/Characters/GethEngineer.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="quarianMEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Quarian Male</p>
+							<img src="resources/Characters/QuarianMale.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="n7Engineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>N7 Demolisher</p>
+							<img src="resources/Characters/N7Demolisher.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="volusEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Volus</p>
+							<img src="resources/Characters/VolusEngineer.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="turianEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Turian Saboteur</p>
+							<img src="resources/Characters/TurianSaboteur.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="vorchaEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Vorcha Hunter</p>
+							<img src="resources/Characters/VorchaHunter.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="talonEngineer" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Talon Mercenary</p>
+							<img src="resources/Characters/TalonMercenary.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="class-name">
+						<font size="2"><p style="margin-top: 26px;">S<br>E<br>N<br>T<br>I<br>N<br>E<br>L</p></font>
+					</div>
+					<div class="character-selector" id="humanSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Human</p>
+							<img src="resources/Characters/HumanAdeptSentinel.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="turianSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Turian</p>
+							<img src="resources/Characters/Turian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="kroganSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Krogan</p>
+							<img src="resources/Characters/Krogan.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="batarianSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Batarian</p>
+							<img src="resources/Characters/Batarian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="vorchaSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Vorcha</p>
+							<img src="resources/Characters/Vorcha.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="n7Sentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>N7 Paladin</p>
+							<img src="resources/Characters/N7Paladin.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="volusSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Volus Mercenary</p>
+							<img src="resources/Characters/VolusMercenary.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="asariSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Asari Valkyrie</p>
+							<img src="resources/Characters/AsariValkyrie.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="kroganWarlordSentinel" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Krogan Warlord</p>
+							<img src="resources/Characters/KroganWarlord.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="class-name">
+						<font size="2"><p style="margin-top: 24px;">I<br>N<br>F<br>I<br>L<br>T<br>R<br>A<br>T<br>O<br>R</p></font>
+					</div>
+					<div class="character-selector" id="humanInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Human</p>
+							<img src="resources/Characters/HumanEngineerInfiltrator.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="salarianInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Salarian</p>
+							<img src="resources/Characters/Salarian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="quarianFInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Quarian Female</p>
+							<img src="resources/Characters/Quarian.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="gethInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Geth</p>
+							<img src="resources/Characters/GethInfiltrator.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="quarianMInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Quarian Male</p>
+							<img src="resources/Characters/QuarianMale.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="n7Infiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Shadow</p>
+							<img src="resources/Characters/N7Shadow.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="turianInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Turian Ghost</p>
+							<img src="resources/Characters/TurianGhost.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="drellInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Drell Assassin</p>
+							<img src="resources/Characters/DrellAssassin.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="asariInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Asari Huntress</p>
+							<img src="resources/Characters/AsariHuntress.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="aiuInfiltrator" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Alliance Infiltration Unit</p>
+							<img src="resources/Characters/AIU.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector deactivated" id="bf3Infiltrator" value="2" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Battlefield 3</p>
+							<img src="resources/Characters/BF3Infiltrator.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="class-name">
+						<font size="2"><p style="margin-top: 26px;">V<br>A<br>N<br>G<br>U<br>A<br>R<br>D</p></font>
+					</div>
+					<div class="character-selector" id="humanVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Human</p>
+							<img src="resources/Characters/HumanSoldierVanguard.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="drellVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Drell</p>
+							<img src="resources/Characters/Drell.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="asariVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Asari</p>
+							<img src="resources/Characters/Asari.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="kroganVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Krogan</p>
+							<img src="resources/Characters/KroganBattlemaster.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="phoenix" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Phoenix Project</p>
+							<img src="resources/Characters/Phoenix.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="n7Vanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>N7 Slayer</p>
+							<img src="resources/Characters/N7Slayer.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="volusVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Volus Protector</p>
+							<img src="resources/Characters/VolusProtector.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="batarianVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Batarian Brawler</p>
+							<img src="resources/Characters/BatarianBrawler.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="character-selector" id="cabalVanguard" value="0" onclick="activateChar(this);storeChar(this)">
+						<center>
+							<p>Cabal</p>
+							<img src="resources/Characters/Cabal.png" width="70" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center> 
+					</div>
+				</div>
+				<div class="div-Selector" id="divWeaponSelector" style="display:none;">
+					<center>
+						<button type="button" onclick="resetDefault(0)" style="margin-right: 50px">set to Default</button>
+						<button type="button" onclick="deactivateAll(0)" style="margin-right: 50px">deactivate all</button>
+						<button type="button" onclick="resetEliminated(0)">reset Eliminated</button>
+					</center>
+					<br>
+					<div class="weapon-selector" id="arAvenger" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-8 Avenger</p>
+							<img src="resources/Weapons/AssaultRifle_Avenger.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arVindicator" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-15 Vindicator</p>
+							<img src="resources/Weapons/AssaultRifle_Vindicator.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arMattock" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-96 Mattock</p>
+							<img src="resources/Weapons/AssaultRifle_Mattock.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arPhaeston" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Phaeston</p>
+							<img src="resources/Weapons/AssaultRifle_Phaeston.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arAdas" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Adas Anti-Synthetic Rifle</p>
+							<img src="resources/Weapons/AssaultRifle_Adas.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arCollector" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Collector Rifle</p>
+							<img src="resources/Weapons/AssaultRifle_Collector.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arGeth" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Geth Pulse Rifle</p>
+							<img src="resources/Weapons/AssaultRifle_Geth.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arFalcon" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-37 Falcon</p>
+							<img src="resources/Weapons/AssaultRifle_Falcon.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arArgus" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-55 Argus</p>
+							<img src="resources/Weapons/AssaultRifle_Argus.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arRevenant" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-76 Revenant</p>
+							<img src="resources/Weapons/AssaultRifle_Revenant.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arStriker" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Striker Assault Rifle</p>
+							<img src="resources/Weapons/AssaultRifle_Striker.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arCerberus" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Cerberus Harrier</p>
+							<img src="resources/Weapons/AssaultRifle_Cerberus.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arSpitfire" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Geth Spitfire</p>
+							<img src="resources/Weapons/AssaultRifle_Spitfire.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arLancer" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-7 Lancer</p>
+							<img src="resources/Weapons/AssaultRifle_Lancer.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arSaber" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-99 Saber</p>
+							<img src="resources/Weapons/AssaultRifle_Saber.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arTyphoon" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Typhoon</p>
+							<img src="resources/Weapons/AssaultRifle_Typhoon.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arValkyrie" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Valkyrie</p>
+							<img src="resources/Weapons/AssaultRifle_Valkyrie.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="arParticle" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Particle Rifle</p>
+							<img src="resources/Weapons/AssaultRifle_ParticleRifle.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector deactivated" id="arChakram" value="2" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Chakram Launcher</p>
+							<img src="resources/Weapons/AssaultRifle_Chakram.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="weapon-selector" id="pistolPredator" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-3 Predator</p>
+							<img src="resources/Weapons/Pistol_Predator.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolPhalanx" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-5 Phalanx</p>
+							<img src="resources/Weapons/Pistol_Phalanx.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolAcolyte" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Acolyte</p>
+							<img src="resources/Weapons/Pistol_Acolyte.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolArc" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Arc Pistol</p>
+							<img src="resources/Weapons/Pistol_ArcPistol.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolExecutioner" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Executioner Pistol</p>
+							<img src="resources/Weapons/Pistol_Executioner.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolCarnifex" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-6 Carnifex</p>
+							<img src="resources/Weapons/Pistol_Carnifex.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolSuppressor" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>M-11 Suppressor</p>
+							<img src="resources/Weapons/Pistol_Suppressor.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolPaladin" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-77 Paladin</p>
+							<img src="resources/Weapons/Pistol_Paladin.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolTalon" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-358 Talon</p>
+							<img src="resources/Weapons/Pistol_Talon.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolEagle" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Eagle</p>
+							<img src="resources/Weapons/Pistol_Eagle.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="pistolScorpion" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Scorpion</p>
+							<img src="resources/Weapons/Pistol_Scorpion.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="weapon-selector" id="shotgunKatana" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-23 Katana</p>
+							<img src="resources/Weapons/Shotgun_Katana.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunEviscerator" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>M-22 Eviscerator</p>
+							<img src="resources/Weapons/Shotgun_Eviscerator.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunScimitar" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-27 Scimitar</p>
+							<img src="resources/Weapons/Shotgun_Scimitar.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunRaider" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>AT-12 Raider</p>
+							<img src="resources/Weapons/Shotgun_Raider.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunDisciple" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Disciple</p>
+							<img src="resources/Weapons/Shotgun_Disciple.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunGeth" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Geth Plasma Shotgun</p>
+							<img src="resources/Weapons/Shotgun_Geth.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunGraal" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Graal Spike Thrower</p>
+							<img src="resources/Weapons/Shotgun_Graal.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunClaymore" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>M-300 Claymore</p>
+							<img src="resources/Weapons/Shotgun_Claymore.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunPiranha" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Piranha</p>
+							<img src="resources/Weapons/Shotgun_Piranha.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunReeger" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Reeger Carbine</p>
+							<img src="resources/Weapons/Shotgun_Reeger.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunWraith" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-11 Wraith</p>
+							<img src="resources/Weapons/Shotgun_Wraith.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunCrusader" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Crusader</p>
+							<img src="resources/Weapons/Shotgun_Crusader.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="shotgunVenom" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Venom Shotgun</p>
+							<img src="resources/Weapons/Shotgun_Venom.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="weapon-selector" id="smgShuriken" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-4 Shuriken</p>
+							<img src="resources/Weapons/SMG_Shuriken.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgTempest" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-9 Tempest</p>
+							<img src="resources/Weapons/SMG_Tempest.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgLocust" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-12 Locust</p>
+							<img src="resources/Weapons/SMG_Locust.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgGeth" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Geth Plasma SMG</p>
+							<img src="resources/Weapons/SMG_Geth.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgHornet" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-25 Hornet</p>
+							<img src="resources/Weapons/SMG_Hornet.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgBloodpack" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Blood Pack Punisher</p>
+							<img src="resources/Weapons/SMG_Bloodpack.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgCollector" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Collector SMG</p>
+							<img src="resources/Weapons/SMG_Collector.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="smgHurricane" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Hurricane</p>
+							<img src="resources/Weapons/SMG_Hurricane.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div><br>
+					<div class="weapon-selector" id="sniperMantis" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-92 Mantis</p>
+							<img src="resources/Weapons/SniperRifle_Mantis.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperRaptor" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-13 Raptor</p>
+							<img src="resources/Weapons/SniperRifle_Raptor.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperIncisor" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-29 Incisor</p>
+							<img src="resources/Weapons/SniperRifle_Incisor.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperViper" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-97 Viper</p>
+							<img src="resources/Weapons/SniperRifle_Viper.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperCollector" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Collector Sniper Rifle</p>
+							<img src="resources/Weapons/SniperRifle_Collector.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperKishock" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Kishock Harpoon Gun</p>
+							<img src="resources/Weapons/SniperRifle_Kishock.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperKrysae" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<p>Krysae Sniper Rifle</p>
+							<img src="resources/Weapons/SniperRifle_Krysae.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperWidow" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-98 Widow</p>
+							<img src="resources/Weapons/SniperRifle_Widow.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperBlackWidow" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Black Widow</p>
+							<img src="resources/Weapons/SniperRifle_BlackWidow.png"	 onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperJavelin" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>Javelin</p>
+							<img src="resources/Weapons/SniperRifle_Javelin.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperIndra" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>M-90 Indra</p>
+							<img src="resources/Weapons/SniperRifle_Indra.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+					<div class="weapon-selector" id="sniperValiant" value="0" onclick="activateWeapon(this);storeChar(this)">
+						<center>
+							<br>
+							<p>N7 Valiant</p>
+							<img src="resources/Weapons/SniperRifle_Valiant.png" onclick="">
+							<img class="imgtip" src="resources/elim.png" width="70">
+						</center>
+					</div>
+				</div>
+				<div id="divRandButton">
+					<p align="center">
+						<button type="button" onclick="rollKit()">Randomize</button>
+						<button id="buttElimRand" type="button" style="margin-left:15px;display:none;" onclick="elimCurrent();rollKit()">Eliminate & Randomize</button>
+					</p>
+					<center>NOTE: To reroll a specific item, click on the picture.</center>
+					<p id="allert" align="center" style="display:none;"></p>
+				</div>
+			</div>
+			<div id="output">
+				<div class="initialNoShow" style="display: inline-block;">
+					<div class="character-box">
+						<center>
+							<div>
+								<font size="4"><p id="characteroutput"></p></font><br><img id="characterPic" src="" onclick="reRollCharacter()">
+							</div>
+						</center>
+					</div>
+				</div>
+				<div class="initialNoShow" style="display: inline-block;">
+					<div class="character-box">
+						<center><font size="4"><p id="weaponoutput1"></p></font><br><br><img id="weaponPic1" src="" onclick="reRollWeapon(1)"></center><br><br><br>
+						<table width="100%">
+							<tbody>
+								<tr>
+									<td>
+										<center><font size="2" color="#909091">
+											<img class="mod" id="weapon1mod1Pic" src="" onclick="rollWeaponMods(1)"><p id="weapon1mod1"></p>
+										</font></center>
+									</td>
+									<td>
+										<center><font size="2" color="#909091">
+											<img class="mod" id="weapon1mod2Pic" src="" onclick="rollWeaponMods(1)"><p id="weapon1mod2"></p>
+										</font></center>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="initialNoShow" style="display: inline-block;">
+					<div class="character-box">
+						<center><font size="4"><p id="weaponoutput2"></p></font><br><br><img id="weaponPic2" src="" onclick="reRollWeapon(2)"></center><br><br><br> 
+						<table width="100%">
+							<tbody>
+								<tr>
+									<td>
+										<center><font size="2" color="#909091">
+											<img class="mod" id="weapon2mod1Pic" src="" onclick="rollWeaponMods(2)"><p id="weapon2mod1"></p>
+										</font></center>
+									</td>
+									<td>
+										<center><font size="2" color="#909091">
+											<img class="mod" id="weapon2mod2Pic" src="" onclick="rollWeaponMods(2)"><p id="weapon2mod2"></p>
+										</font></center>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div class="initialNoShow2" style="display: inline-block;">
+					<div class="gear-box">
+						<div class="gear">
+							<center style="display:none">
+								<font size="4"><p>Ammo Bonus:</p></font><br>
+								<img class="mod" id="ammoPic" src="" onclick="rollRandomAmmo()">
+								<font size="3" color="#909091"><p id="ammoOutput"></p></font>
+							</center>
+						</div>
+						<div class="gear">
+							<center style="display:none">
+								<font size="4"><p>Weapon Bonus:</p></font><br>
+								<img class="mod" id="weaponBonusPic" src="" onclick="rollRandomWeaponBonus()">
+								<font size="3" color="#909091"><p id="weaponBonusOutput"></p></font>
+							</center>
+						</div>
+						<div class="gear">
+							<center style="display:none">
+								<font size="4"><p>Armor Bonus:</p></font><br>
+								<img class="mod" id="armorPic" src="" onclick="rollRandomArmor()">
+								<font size="3" color="#909091"><p id="armorOutput"></p></font>
+							</center>
+						</div>
+						<div class="gear">
+							<center style="display:none">
+								<font size="4"><p>Gear Bonus:</p></font><br>
+								<img class="mod" id="gearPic" src="" onclick="rollRandomGear()">
+								<font size="3" color="#909091"><p id="gearOutput"></p></font>
+							</center>
+						</div>
+					</div>
+				</div>
+				<div class="initialNoShow3" style="display: inline-block;">
+					<div class="power-box" onclick="reRollPowers()">
+						<div id="power-selector" style="display: none;">
+							<div id="power-0" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-1" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-2" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-3" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="resources/powers/MPPassive.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="resources/powers/MPPassive.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="resources/powers/MPPassive.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="resources/powers/MPPassive.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="power-4" class="power-tree">
+								<div class="power-label">
+									<span class="ui-check-label"></span>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-1" data="hello">
+										<img src="resources/powers/MPFitness.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-2">
+										<img src="resources/powers/MPFitness.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-frame">
+									<div class="power-icon rank-3">
+										<img src="resources/powers/MPFitness.png">
+										<span class="tooltip-text"></span>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-4A">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-4B">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-5A">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-5B">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+								<div class="power-evo">
+									<div class="power-frame">
+										<div class="power-icon rank-6A">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+									<div class="power-frame">
+										<div class="power-icon rank-6B">
+											<img src="resources/powers/MPFitness.png">
+											<span class="tooltip-text"></span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="resources/main.js"></script>
+</html> 
