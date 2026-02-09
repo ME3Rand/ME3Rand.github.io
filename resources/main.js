@@ -257,7 +257,7 @@ function rollPowers(rerollChar) {
 						  ['SeekerSwarm', 'Seeker Swarm', 'Recharge Speed', 'Damage', 'Recharge Speed', 'Slow', 'Damage Reduction', 'Damage', 'Swarm Count', 'Damage & Slow', 70, 70, 70],
 						  ['DarkChannel', 'Dark Channel', 'Recharge Speed', 'Damage', 'Damage', 'Duration', 'Slow', 'Recharge Speed', 'Damage', 'Pierce', 60, 40, 40],
 						  ['MPPassive', 'Vengeful Ancient', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Power Damage', 'Collector/Prothean Weapon Damage', 50, 60, 50],
-						  ['MPFitness','Ancient Warrior', 'Durability', 'Melee Damage', 'Ascension Damage Bonus', 'Durability', 'Ascension Recharge Speed', 'Shield Recharge', 'Ascension Mastery', 'Fitness Expert',  30, 50, 30]];
+						  ['AncientWarrior','Ancient Warrior', 'Durability', 'Melee Damage', 'Ascension Damage Bonus', 'Durability', 'Ascension Recharge Speed', 'Shield Recharge', 'Ascension Mastery', 'Fitness Expert',  30, 50, 30]];
 			break;
 		case 'Human Soldier':
 			var powers = [['AdrenalineRush', 'Adrenaline Rush', 'Recharge Speed', 'Duration', 'Hardening', 'Damage', 'Duration', 'Melee Damage', 'Shield Boost', 'Power Use', 50, 30, 60],
@@ -404,7 +404,7 @@ function rollPowers(rerollChar) {
 						  ['ConcussiveArrow', 'Concussive Arrows', 'Grenade Capacity', 'Force & Damage', 'Force & Damage', 'Grenade Capacity', 'Shock', 'Chill', 'Arrow Count', 'Grenade Capacity', 50, 50, 50],
 						  ['APArrow', 'Armor-Piercing Arrows', 'Grenade Capacity', 'Damage', 'Damage', 'Grenade Capacity', 'Shred', 'Armor Damage', 'Arrow Count', 'Grenade Capacity', 50, 40, 50],
 						  ['MPPassive', 'Elite Mercenary', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Power Damage', 'Power Damage', 'Headshots', 'Charge Regeneration', 'Weapon Damage', 50, 60, 50],
-						  ['MPFitness', 'Omni-Bow Mastery', 'Durability', 'Omni-Bow Damage', 'Omni-Bow Damage', 'Durability', 'Killing Spree', 'Shield Recharge', 'Omni-Bow Damage', 'Fitness Expert', 50, 50, 50]];
+						  ['OmniBowMastery', 'Omni-Bow Mastery', 'Durability', 'Omni-Bow Damage', 'Omni-Bow Damage', 'Durability', 'Killing Spree', 'Shield Recharge', 'Omni-Bow Damage', 'Fitness Expert', 50, 50, 50]];
 			break;
 		case 'Human Sentinel':
 			var powers = [['TechArmor', 'Tech Armor', 'Recharge Speed', 'Damage & Radius', 'Damage & Radius', 'Durability', 'Power Damage', 'Melee Damage', 'Power Recharge', 'Durability', 20, 70, 50],
@@ -446,7 +446,7 @@ function rollPowers(rerollChar) {
 						  ['Incinerate', 'Incinerate', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Burning Damage', 'Recharge Speed', 'Freeze Combo', 'Armor Damage', 50, 60, 60],
 						  ['SnapFreeze', 'Snap Freeze', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Duration & Slow', 'Cryo Explosion', 'Damage & Weakness', 'Tech Combo', 30, 40, 95],
 						  ['MPPassive', 'N7 Paladin', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 30],
-						  ['MPFitness', 'Shield Mastery', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Shield Durability', 'Shield Recharge', 'Fire Shield', 'Cryo Shield', 50, 40, 70]];
+						  ['ShieldMastery', 'Shield Mastery', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Shield Durability', 'Shield Recharge', 'Fire Shield', 'Cryo Shield', 50, 40, 70]];
 			break;
 		case 'Volus Mercenary Sentinel':
 			var powers = [['Decoy', 'Decoy', 'Recharge Speed', 'Duration', 'Duration', 'Durability', 'Shock', 'Recharge Speed', 'Exploding Decoy', 'Shields & Duration', 50, 60, 60],
@@ -509,7 +509,7 @@ function rollPowers(rerollChar) {
 						  ['ElectricSlash', 'Electric Slash', 'Recharge Speed', 'Damage', 'Damage', 'Radius', 'Detonate', 'Recharge Speed', 'Damage', 'Range', 50, 5, 50],
 						  ['ShadowStrike', 'Shadow Strike', 'Recharge Speed', 'Damage', 'Damage', 'Damage Protection', 'Electric Damage', 'Recharge Speed', 'Damage', 'Shield Drain', 50, 70, 40],
 						  ['MPPassive', 'N7 Shadow', 'Power Damage', 'Weapon Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Weapon Weight', 'Weapon Damage', 50, 60, 20],
-						  ['MPFitness', 'Sword Mastery', 'Durability', 'Sword Damage', 'Sword Damage', 'Durability', 'Martial Artist', 'Shield Recharge & Speed', 'Shield Damage', 'Armor Damage', 60, 70, 50]];
+						  ['SwordMastery', 'Sword Mastery', 'Durability', 'Sword Damage', 'Sword Damage', 'Durability', 'Martial Artist', 'Shield Recharge & Speed', 'Shield Damage', 'Armor Damage', 60, 70, 50]];
 			break;
 		case 'Turian Ghost Infiltrator':
 			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Assault Rifle Damage', 40, 50, 40],
@@ -1545,4 +1545,5 @@ window.onload = function(){
 	disableAmmo();
 	disableWeaponBonus();
 	disableGear();
+
 }
