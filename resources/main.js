@@ -512,7 +512,7 @@ function rollPowers(rerollChar) {
 						  ['SwordMastery', 'Sword Mastery', 'Durability', 'Sword Damage', 'Sword Damage', 'Durability', 'Martial Artist', 'Shield Recharge & Speed', 'Shield Damage', 'Armor Damage', 60, 70, 50]];
 			break;
 		case 'Turian Ghost Infiltrator':
-			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Assault Rifle Damage', 40, 50, 40],
+			var powers = [['TacticalCloakTGI', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Assault Rifle Damage', 40, 50, 40],
 						  ['StimPack', 'Stimulant Pack', 'Pack Capacity', 'Damage', 'Damage', 'Max Shields', 'Pack Capacity', 'Duration', 'Weapon Damage', 'Survival', 50, 50, 50],
 						  ['Overload', 'Overload', 'Recharge Speed', 'Damage', 'Chain Overload', 'Damage', 'Neural Shock', 'Recharge Speed', 'Chain Overload', 'Shield Damage', 60, 70, 40],
 						  ['MPPassive', 'Armiger Legion', 'Weapon Stability', 'Weapon Damage', 'Damage & Stability', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Assault Rifles', 'Damage & Stability', 50, 50, 20],
@@ -526,14 +526,14 @@ function rollPowers(rerollChar) {
 						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Melee Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Asari Huntress Infiltrator':
-			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Power Damage', 40, 60, 40],
+			var powers = [['TacticalCloakTGI', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Power Damage', 40, 60, 40],
 						  ['DarkChannel', 'Dark Channel', 'Recharge Speed', 'Damage', 'Damage', 'Duration', 'Slow', 'Recharge Speed', 'Damage', 'Pierce', 60, 50, 40],
 						  ['Warp', 'Warp', 'Recharge Speed', 'Damage', 'Damage', 'Detonate', 'Lasting Damage', 'Expose', 'Pierce', 'Recharge Speed', 30, 40, 60],
 						  ['MPPassive', 'Asari Huntress', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols', 'Weapon Damage', 40, 60, 20],
 						  ['MPFitness', 'Fitness', 'Durability', 'Melee Damage', 'Melee Damage', 'Durability', 'Martial Artist', 'Shield Recharge', 'Power Synergy', 'Fitness Expert', 20, 30, 30]];
 			break;
 		case 'Alliance Infiltration Unit Infiltrator':
-			var powers = [['TacticalCloak', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Shotgun Damage', 40, 50, 40],
+			var powers = [['TacticalCloakAIU', 'Tactical Cloak', 'Recharge Speed', 'Duration', 'Duration', 'Damage', 'Recharge Speed', 'Melee Damage', 'Bonus Power', 'Shotgun Damage', 40, 50, 40],
 						  ['SnapFreeze', 'Snap Freeze', 'Recharge Speed', 'Damage', 'Damage', 'Reach', 'Duration & Slow', 'Cryo Explosion', 'Damage & Weakness', 'Tech Combo', 40, 30, 50],
 						  ['RepairMatrix', 'Repair Matrix', 'Charge Capacity', 'Shields Restored', 'Survivability', 'Shields Restored', 'Charges Capacity', 'Duration', 'Lasting Repair Matrix', 'Enhanced Repair Matrix', 50, 40, 40],
 						  ['MPPassive', 'Unshackled A.I.', 'Weapon Damage', 'Power Damage', 'Weapon Damage', 'Damage & Capacity', 'Power Damage', 'Headshots', 'Pistols & Shotguns', 'Weapon Damage', 50, 50, 20],
@@ -1547,3 +1547,4 @@ window.onload = function(){
 	disableGear();
 
 }
+
